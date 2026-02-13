@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>PAEC – Pakistan Africa Economic Council | Sovereign Bridge</title>
+  <!-- Font Awesome 6 Pro (Free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font: Inter + SF Pro Display alternative -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Swiper JS (Carousel) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    /* ---------- DESIGN SYSTEM – PAEC ULTIMATE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green-deep: #0C5E3C;
+      --green-bright: #1F7A4C;
+      --green-soft: #E8F2EE;
+      --green-pale: #F3F9F6;
+      --white: #FFFFFF;
+      --white-off: #FDFCFA;
+      --red-vibrant: #C42B2B;
+      --red-deep: #A51F1F;
+      --black-crisp: #121212;
+      --black-soft: #1E1E1E;
+      --yellow-mustard: #FFD93D;
+      --yellow-pale: #FFF9E6;
+      --gray-1: #F9FBFB;
+      --gray-2: #EFF3F2;
+      --shadow-xs: 0 4px 12px rgba(0,0,0,0.02);
+      --shadow-sm: 0 8px 24px rgba(15,92,63,0.06);
+      --shadow-md: 0 16px 40px -12px rgba(15,92,63,0.16);
+      --shadow-lg: 0 32px 64px -16px rgba(196,43,43,0.16);
+      --shadow-xl: 0 48px 80px -20px rgba(0,0,0,0.18);
+      --radius-sm: 16px;
+      --radius-md: 24px;
+      --radius-lg: 40px;
+      --radius-xl: 60px;
+      --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--black-crisp);
+      background-color: var(--white);
+      line-height: 1.5;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 5;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- PREMIUM NAVIGATION ---------- */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(15,92,63,0.06);
+      padding: 20px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-paec {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-primary {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--green-deep);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .logo-primary span {
+      color: var(--red-vibrant);
+      position: relative;
+      display: inline-block;
+    }
+    .logo-primary span::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: var(--yellow-mustard);
+      opacity: 0.3;
+      z-index: -1;
+    }
+    .logo-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--green-deep);
+      font-weight: 700;
+      margin-top: 6px;
+      opacity: 0.85;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+      font-weight: 600;
+      color: #1D2C2A;
+    }
+    .nav-item {
+      position: relative;
+      font-size: 0.95rem;
+      padding: 8px 0;
+    }
+    .nav-item i {
+      margin-left: 6px;
+      font-size: 0.7rem;
+      color: var(--red-vibrant);
+    }
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2.5px;
+      background: var(--red-vibrant);
+      transition: var(--transition);
+    }
+    .nav-item:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-icon {
+      display: none;
+      font-size: 2rem;
+      color: var(--green-deep);
+    }
+
+    /* ---------- HERO – CINEMATIC, DARK OVERLAY, CENTERED ---------- */
+    .hero-paec {
+      background: linear-gradient(145deg, rgba(0,25,15,0.92) 0%, rgba(5,35,25,0.95) 100%),
+                  url('https://images.pexels.com/photos/9246758/pexels-photo-9246758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center 25%;
+      background-attachment: fixed;
+      padding: 160px 0 140px;
+      text-align: center;
+      color: white;
+      position: relative;
+      isolation: isolate;
+    }
+    .hero-paec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 40%, rgba(196,43,43,0.15) 0%, transparent 60%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+    }
+    .hero-pre {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 14px 36px;
+      border-radius: 100px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .hero-paec h1 {
+      font-size: 4.2rem;
+      font-weight: 900;
+      line-height: 1.05;
+      color: white;
+      text-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      margin-bottom: 28px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-paec h1 span {
+      color: var(--yellow-mustard);
+      border-bottom: 6px solid var(--red-vibrant);
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+    .hero-sub {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.95);
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.4;
+    }
+
+    /* ---------- SECTION TITLES – MASTERFUL ---------- */
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .section-title .accent {
+      color: var(--green-deep);
+      border-bottom: 6px solid var(--red-vibrant);
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+    .section-subhead {
+      font-size: 1.25rem;
+      text-align: center;
+      width: 100%;
+      color: #3E5852;
+      max-width: 700px;
+      margin-bottom: 60px;
+      font-weight: 400;
+    }
+
+    /* ---------- IMAGE LEFT/RIGHT LAYOUT – ELEGANT ---------- */
+    .split-image {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+    .split-image > div {
+      flex: 1 1 300px;
+    }
+    .img-master {
+      border-radius: 32px;
+      box-shadow: var(--shadow-xl);
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      transition: var(--transition);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .img-master:hover {
+      transform: scale(1.02);
+      box-shadow: 0 60px 100px -30px rgba(196,43,43,0.25);
+    }
+
+    /* ---------- FLAGSHIP ECONOMIES – FLAGS, STATS, REFINED ---------- */
+    .flagship-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .economy-card {
+      background: white;
+      border-radius: 28px;
+      padding: 36px 30px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      background-color: #0c5e3c36;
+      position: relative;
+      overflow: hidden;
+    }
+   
+    .economy-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-lg);
+    }
+    .economy-card:hover::before {
+      height: 100%;
+    }
+    .flag-icon {
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+    }
+    .economy-card h3 {
+      font-size: 1.9rem;
+      color: var(--green-deep);
+      margin-bottom: 16px;
+    }
+    .economy-stats {
+      color: var(--green-deep);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* ---------- SECTORS – VISUAL MASTERY, NO TEXT LINKS ---------- */
+    .sectors-master-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .sector-master-card {
+      background: var(--white);
+      border-radius: 32px;
+      padding: 44px 24px;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid rgba(15,92,63,0.04);
+      box-shadow: var(--shadow-xs);
+      position: relative;
+      overflow: hidden;
+    }
+    .sector-master-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green-deep), var(--red-vibrant));
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .sector-master-card:hover::after {
+      opacity: 1;
+    }
+    .sector-master-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-md);
+      background: white;
+    }
+    .sector-master-card i {
+      font-size: 3.2rem;
+      color: var(--green-deep);
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+    .sector-master-card:hover i {
+      color: var(--red-vibrant);
+      transform: scale(1.1);
+    }
+    .sector-master-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--black-crisp);
+    }
+
+    /* ---------- VISION MISSION – MONUMENTAL ---------- */
+    .vm-monument {
+      display: flex;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 60px;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+    .vm-panel {
+      flex: 1 1 300px;
+      padding: 80px 60px;
+    }
+    .vm-green {
+      background: var(--green-deep);
+      color: white;
+    }
+    .vm-white {
+      background: white;
+      border-left: 8px solid var(--red-vibrant);
+    }
+    .vm-icon {
+      font-size: 3rem;
+      margin-bottom: 28px;
+    }
+    .vm-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 28px;
+      border-bottom: 6px solid var(--yellow-mustard);
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+    .vm-white .vm-title {
+      border-bottom-color: var(--red-vibrant);
+      color: var(--green-deep);
+    }
+
+    /* ---------- LEADERSHIP CAROUSEL – SWIPER, RESPONSIVE 3/2/1 ---------- */
+    .swiper {
+      width: 100%;
+      padding: 30px 0 70px;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+    }
+    .leader-card {
+      background: white;
+      border-radius: 40px;
+      padding: 48px 32px 42px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      width: 100%;
+      max-width: 340px;
+      border-bottom: 6px solid var(--green-deep);
+      position: relative;
+    }
+    .leader-card:hover {
+      transform: translateY(-14px);
+      border-bottom-color: var(--red-vibrant);
+      box-shadow: var(--shadow-lg);
+    }
+    .leader-img {
+      width: 140px;
+      height: 140px;
+      background: var(--green-soft);
+      border-radius: 50%;
+      margin: 0 auto 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: var(--green-deep);
+      border: 4px solid var(--red-vibrant);
+      transition: var(--transition);
+    }
+    .leader-card:hover .leader-img {
+      border-color: var(--yellow-mustard);
+      transform: scale(1.04);
+    }
+    .swiper-pagination-bullet-active {
+      background: var(--red-vibrant) !important;
+    }
+    .swiper-button-next, .swiper-button-prev {
+      color: var(--red-vibrant) !important;
+    }
+
+    /* ---------- INSIGHTS – ONLY 3 REPORTS, PREMIUM ---------- */
+    .insights-triptych {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 50px;
+    }
+    .insight-flagship {
+      background: white;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      border-bottom: 6px solid var(--green-deep);
+    }
+    .insight-flagship:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-xl);
+      border-bottom-color: var(--red-vibrant);
+    }
+    .insight-img {
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+      transition: var(--transition);
+    }
+    .insight-flagship:hover .insight-img {
+      transform: scale(1.02);
+    }
+    .insight-content {
+      padding: 32px 28px;
+    }
+
+    /* ---------- FEATURE BLOCKS – LEFT/RIGHT IMAGE, 3 SECTIONS ---------- */
+    .feature-block {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      flex-wrap: wrap;
+      margin: 120px 0;
+    }
+    .feature-block:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    /* ---------- TRADE STATS – BOLD ---------- */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .stat-super {
+      background: white;
+      padding: 48px 24px;
+      text-align: center;
+      border-radius: 32px;
+      box-shadow: var(--shadow-sm);
+      border-bottom: 6px solid var(--red-vibrant);
+      transition: var(--transition);
+    }
+    .stat-super:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* ---------- CONTACT & USEFUL LINKS – REFINED ---------- */
+    .contact-panel {
+      background: var(--green-pale);
+      border-radius: 48px;
+      padding: 60px 50px;
+      border-left: 8px solid var(--red-vibrant);
+    }
+
+    /* ---------- FOOTER – NOBLE ---------- */
+    .footer-noble {
+      background: #0C1F1B;
+      color: white;
+      padding: 90px 0 40px;
+      border-top: 8px solid var(--red-vibrant);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1100px) {
+      .insights-triptych { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .mobile-menu-icon { display: block; }
+      .hero-paec h1 { font-size: 3.2rem; }
+      .stat-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 700px) {
+      .insights-triptych { grid-template-columns: 1fr; }
+      .stat-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 2.2rem; }
+    }
+
+    /* ---------- UTILITY ---------- */
+    .bg-soft { background: var(--green-pale); }
+    .text-red { color: var(--red-vibrant); }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAVIGATION – ULTIMATE PRECISION -->
+  <nav class="sticky-nav">
+    <div class="container nav-container">
+      <div class="logo-paec">
+        <div class="logo-primary">PAKISTAN <span>AFRICA</span> ECONOMIC COUNCIL</div>
+        <div class="logo-tag">SECP LICENSED · SECTION 42 · NON-PROFIT</div>
+      </div>
+      <div class="nav-links">
+        <span class="nav-item">Home</span>
+        <span class="nav-item">About</span>
+        <span class="nav-item">Functions <i class="fas fa-chevron-down"></i></span>
+        <span class="nav-item">Why PAEC</span>
+        <span class="nav-item">Reports</span>
+        <span class="nav-item">Events</span>
+        <span class="nav-item">Contact</span>
+      </div>
+      <div class="mobile-menu-icon"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+
+  <!-- HERO – MAGISTERIAL, DARK, CENTERED -->
+  <section class="hero-paec">
+    <div class="container hero-content">
+      <div class="hero-pre"><i class="fas fa-certificate" style="margin-right: 10px;"></i> FIRST LEGAL MANDATE · SECP SECTION 42</div>
+      <h1><span>Pakistan Africa Economic Council</span><br>Catalyzing Comprehensive Cooperation</h1>
+      <p class="hero-sub">The pioneering non-profit bridging Pakistan and 54 African nations – trade, investment, innovation, and shared prosperity.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT WITH RIGHT IMAGE – ELEVATED -->
+  <section style="padding: 120px 0; background: white;">
+    <div class="container">
+      <div class="split-image">
+        <div>
+          <h2 class="section-title"><span class="accent">About Pakistan Africa Economic Council</span></h2>
+          <p style="font-size: 1.4rem; font-weight: 700; color: var(--green-deep); text-align: center; margin-bottom: 28px; line-height: 1.3;">The first and only organization licensed by SECP under section 42 as a non-profit Public Limited Company.</p>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #2D403C; margin-bottom: 28px;  text-align: center;">PAEC stands at the forefront of a transformative era in Pakistan-Africa relations, leveraging economic synergies, institutional linkages, and people-to-people connections to drive sustainable development and mutual prosperity. With headquarters in Karachi and strategic partnerships across Africa, we facilitate high-level policy dialogue, trade delegations, and investment matchmaking.</p>
+        </div>
+        <div>
+          <img class="img-master" src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pakistan Africa trade council">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLAGSHIP ECONOMIES – WITH FLAGS & STATS -->
+  <section style="padding: 120px 0; background: var(--green-pale);">
+  <div class="container">
+    <h2 class="section-title"><span class="accent">Flagship & High Potential Economies</span></h2>
+    <p class="section-subhead">Strategic hubs – GDP, population, FDI inflows (latest data)</p>
+    <div class="flagship-grid">
+      <div class="economy-card">
+        <img src="https://flagcdn.com/za.svg" alt="South Africa Flag" width="40" class="flag-icon">
+        <h3>South Africa</h3>
+        <div class="economy-stats">GDP $410B · Pop. 64.1M · FDI $156.8B</div>
+      </div>
+      <div class="economy-card">
+        <img src="https://flagcdn.com/eg.svg" alt="Egypt Flag" width="40" class="flag-icon">
+        <h3>Egypt</h3>
+        <div class="economy-stats">GDP $396B · Pop. 109.4M · FDI $9.84B</div>
+      </div>
+      <div class="economy-card">
+        <img src="https://flagcdn.com/ng.svg" alt="Nigeria Flag" width="40" class="flag-icon">
+        <h3>Nigeria</h3>
+        <div class="economy-stats">GDP $246B · Pop. 223.8M · FDI $116B</div>
+      </div>
+      <div class="economy-card">
+        <img src="https://flagcdn.com/dz.svg" alt="Algeria Flag" width="40" class="flag-icon">
+        <h3>Algeria</h3>
+        <div class="economy-stats">GDP $263B · Pop. 46.8M · FDI $1.97B</div>
+      </div>
+      <div class="economy-card">
+        <img src="https://flagcdn.com/ke.svg" alt="Kenya Flag" width="40" class="flag-icon">
+        <h3>Kenya</h3>
+        <div class="economy-stats">GDP $131.7B · Pop. 51.5M · FDI $1.5B</div>
+      </div>
+      <div class="economy-card">
+        <img src="https://flagcdn.com/ma.svg" alt="Morocco Flag" width="40" class="flag-icon">
+        <h3>Morocco</h3>
+        <div class="economy-stats">GDP $130B · Pop. 37M · FDI $1.0B</div>
+      </div>
+      <div class="economy-card">
+        <img src="https://flagcdn.com/rw.svg" alt="Rwanda Flag" width="40" class="flag-icon">
+        <h3>Rwanda</h3>
+        <div class="economy-stats">GDP $14.25B · Pop. 10.7M · FDI $459B*</div>
+      </div>
+      <div class="economy-card">
+        <img src="https://flagcdn.com/et.svg" alt="Ethiopia Flag" width="40" class="flag-icon">
+        <h3>Ethiopia</h3>
+        <div class="economy-stats">GDP $156B · Pop. 127M · FDI $3.98B</div>
+      </div>
+      <div class="economy-card">
+        <img src="https://flagcdn.com/ci.svg" alt="Ivory Coast Flag" width="40" class="flag-icon">
+        <h3>Ivory Coast</h3>
+        <div class="economy-stats">GDP $86B · Pop. 29M · FDI $3.8B</div>
+      </div>
+      <div class="economy-card">
+        <img src="https://flagcdn.com/ly.svg" alt="Libya Flag" width="40" class="flag-icon">
+        <h3>Libya</h3>
+        <div class="economy-stats">GDP $45B · Pop. 7.0M · FDI $18.46B</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- BUSINESS SECTORS – 10 PILLARS, NO READ MORE, PURE VISUAL -->
+  <section style="padding: 120px 0; background: white;">
+    <div class="container">
+      <h2 class="section-title"><span class="accent">Business Sectors</span> — driving economic diversification</h2>
+      <div class="sectors-master-grid">
+        <div class="sector-master-card"><i class="fas fa-seedling"></i><h4>Agriculture & Agribusiness</h4></div>
+        <div class="sector-master-card"><i class="fas fa-bolt"></i><h4>Energy & Power</h4></div>
+        <div class="sector-master-card"><i class="fas fa-gem"></i><h4>Mining & Natural Resources</h4></div>
+        <div class="sector-master-card"><i class="fas fa-industry"></i><h4>Manufacturing & Industrialization</h4></div>
+        <div class="sector-master-card"><i class="fas fa-hard-hat"></i><h4>Infrastructure & Construction</h4></div>
+        <div class="sector-master-card"><i class="fas fa-laptop-code"></i><h4>IT & Digital Economy</h4></div>
+        <div class="sector-master-card"><i class="fas fa-hospital"></i><h4>Healthcare & Pharmaceuticals</h4></div>
+        <div class="sector-master-card"><i class="fas fa-umbrella-beach"></i><h4>Tourism & Hospitality</h4></div>
+        <div class="sector-master-card"><i class="fas fa-graduation-cap"></i><h4>Education & Skills Development</h4></div>
+        <div class="sector-master-card"><i class="fas fa-building-columns"></i><h4>Financial Services & Banking</h4></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION & MISSION – MONUMENTAL ENHANCED -->
+  <section style="padding: 100px 0; background: var(--green-pale);">
+    <div class="container">
+      <div class="vm-monument">
+        <div class="vm-panel vm-green">
+          <div class="vm-icon"><i class="fas fa-eye"></i></div>
+          <div class="vm-title">Vision</div>
+          <p style="font-size: 1.9rem; font-weight: 800; line-height: 1.2; margin-bottom: 30px;">Premier platform for Pakistan-Africa cooperation.</p>
+          <p style="font-size: 1.1rem; opacity: 0.96; line-height: 1.7;">Promoting economic growth, innovative ventures, institutional collaboration, cultural understanding, and strategic partnerships for sustainable development and shared prosperity.</p>
+        </div>
+        <div class="vm-panel vm-white">
+          <div class="vm-icon"><i class="fas fa-bullseye" style="color: var(--red-vibrant);"></i></div>
+          <div class="vm-title">Mission</div>
+          <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 30px; color: var(--green-deep);">Facilitate bilateral trade, investment, and economic cooperation.</p>
+          <ul style="list-style: none;">
+            <li style="margin-bottom: 24px; display: flex; gap: 16px;"><i class="fas fa-check-circle" style="color: var(--red-vibrant); font-size: 1.6rem;"></i><span style="font-size: 1.15rem; font-weight: 500;">Address non-tariff barriers</span></li>
+            <li style="margin-bottom: 24px; display: flex; gap: 16px;"><i class="fas fa-check-circle" style="color: var(--red-vibrant); font-size: 1.6rem;"></i><span style="font-size: 1.15rem;">Support market access for SMEs</span></li>
+            <li style="margin-bottom: 24px; display: flex; gap: 16px;"><i class="fas fa-check-circle" style="color: var(--red-vibrant); font-size: 1.6rem;"></i><span style="font-size: 1.15rem;">Capacity-building & policy development</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP CAROUSEL – SWIPER (3,2,1) -->
+  <section style="padding: 120px 0; background: white;">
+    <div class="container">
+      <h2 class="section-title"><span class="accent">Our Leadership</span></h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><div class="leader-card"><div class="leader-img"><i class="fas fa-user-tie"></i></div><h3 style="font-size: 1.7rem;">Dr. Shahbaz Malik</h3><p style="color: var(--green-deep); font-weight: 600;">President</p></div></div>
+          <div class="swiper-slide"><div class="leader-card"><div class="leader-img"><i class="fas fa-user-tie"></i></div><h3 style="font-size: 1.7rem;">Dr. Rehan Chawla</h3><p style="color: var(--green-deep);">Vice President</p></div></div>
+          <div class="swiper-slide"><div class="leader-card"><div class="leader-img"><i class="fas fa-user-tie"></i></div><h3 style="font-size: 1.7rem;">Rashid Alam</h3><p>Secretary General</p></div></div>
+          <div class="swiper-slide"><div class="leader-card"><div class="leader-img"><i class="fas fa-user-tie"></i></div><h3 style="font-size: 1.7rem;">Abdul Wajid</h3><p>Islamabad Chapter</p></div></div>
+          <div class="swiper-slide"><div class="leader-card"><div class="leader-img"><i class="fas fa-user-md"></i></div><h3 style="font-size: 1.7rem;">Dr. Basit</h3><p>Executive Director</p></div></div>
+          <div class="swiper-slide"><div class="leader-card"><div class="leader-img"><i class="fas fa-user-md"></i></div><h3 style="font-size: 1.7rem;">Dr. Abu Bakar</h3><p>Director Research</p></div></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIGHTS – ONLY 3 REPORTS, FLAGSHIP QUALITY -->
+  <section style="padding: 120px 0; background: var(--green-pale);">
+    <div class="container">
+      <h2 class="section-title"><span class="accent">Insights & Reports</span></h2>
+      <p class="section-subhead">Research-Driven Intelligence to Accelerate Economic Collaboration</p>
+      <div class="insights-triptych">
+        <div class="insight-flagship">
+          <div class="insight-img" style="background-image: url('https://images.pexels.com/photos/1620303/pexels-photo-1620303.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+          <div class="insight-content"><h3 style="font-size: 1.7rem; margin-bottom: 12px;">South Sudan: Frontier Market</h3><p style="color: #3E5852; line-height: 1.6;">Strategic engagement for bilateral trade – oil, agriculture, infrastructure.</p></div>
+        </div>
+        <div class="insight-flagship">
+          <div class="insight-img" style="background-image: url('https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+          <div class="insight-content"><h3 style="font-size: 1.7rem; margin-bottom: 12px;">Kenya: Silicon Savannah</h3><p style="color: #3E5852;">Strengthening trade with East Africa's tech and logistics hub.</p></div>
+        </div>
+        <div class="insight-flagship">
+          <div class="insight-img" style="background-image: url('https://images.pexels.com/photos/1002703/pexels-photo-1002703.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
+          <div class="insight-content"><h3 style="font-size: 1.7rem; margin-bottom: 12px;">Rwanda: High-Value Agriculture</h3><p style="color: #3E5852;">Gateway for tech partnerships and agro-processing.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE NEW SECTIONS – LEFT/RIGHT IMAGE ALTERNATING -->
+  <section style="padding: 80px 0 20px; background: white;">
+    <div class="container">
+      <!-- SECTION 1: Image Right -->
+      <div class="feature-block">
+        <div>
+          <h2 class="section-title"><span class="accent">Islamabad Chapter</span></h2>
+          <p style="font-size: 1.25rem; line-height: 1.7; color: #2D403C;">PAEC's capital hub driving policy advocacy, parliamentary engagement, and diplomatic coordination with African missions. Led by Abdul Wajid, the chapter focuses on trade facilitation and high-level government liaison.</p>
+        </div>
+        <div>
+          <img class="img-master" src="https://images.pexels.com/photos/7710747/pexels-photo-7710747.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Islamabad Chapter">
+        </div>
+      </div>
+      <!-- SECTION 2: Image Left -->
+      <div class="feature-block">
+        <div>
+          <img class="img-master" src="https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Trade Delegation">
+        </div>
+        <div>
+          <h2 class="section-title"><span class="accent">Trade & Investment Delegations</span></h2>
+          <p style="font-size: 1.25rem; line-height: 1.7;">PAEC organizes annual trade missions to Nigeria, Kenya, South Africa, and Rwanda. In 2025, we facilitated 40+ B2B meetings and secured $120M in export deals.</p>
+        </div>
+      </div>
+      <!-- SECTION 3: Image Right -->
+      <div class="feature-block">
+        <div>
+          <h2 class="section-title"><span class="accent">Youth & Skills Development</span></h2>
+          <p style="font-size: 1.25rem; line-height: 1.7;">PAEC's partnership with African vocational institutes and Pakistani universities offers exchange programs, technical training, and joint certification in agri-tech, IT, and renewable energy.</p>
+        </div>
+        <div>
+          <img class="img-master" src="https://images.pexels.com/photos/4778750/pexels-photo-4778750.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Youth Skills">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAKISTAN–AFRICA ECONOMIC ENGAGEMENT 2024 – TRADE STATS -->
+  <section style="padding: 100px 0; background: var(--green-pale);">
+    <div class="container">
+      <h2 class="section-title"><span class="accent">Pakistan–Africa Economic Engagement</span> (2024)</h2>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap;">
+        <p style="font-size: 1.3rem; max-width: 700px;">Pakistan’s engagement with Africa is gaining momentum – stronger trade, investment, and knowledge partnerships.</p>
+        <span style="background: var(--yellow-mustard); padding: 12px 32px; border-radius: 60px; font-weight: 700;">Updated Q2 2026</span>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-super"><span style="font-size: 4rem; font-weight: 900; color: var(--green-deep);">$4.8B</span><p style="font-size: 1.2rem; font-weight: 600; margin-top: 12px;">Bilateral Trade</p></div>
+        <div class="stat-super"><span style="font-size: 4rem; font-weight: 900; color: var(--green-deep);">$2.9B</span><p style="font-size: 1.2rem;">Imports from Africa</p></div>
+        <div class="stat-super"><span style="font-size: 4rem; font-weight: 900; color: var(--green-deep);">$1.9B</span><p style="font-size: 1.2rem;">Exports to Africa</p></div>
+        <div class="stat-super"><span style="font-size: 4rem; font-weight: 900; color: var(--green-deep);">2.8%</span><p style="font-size: 1.2rem;">Export Share</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USEFUL LINKS & CONTACT – POLISHED -->
+  <section style="padding: 120px 0; background: white;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 70px;">
+        <div>
+          <h2 class="section-title"><span class="accent">Useful Links</span></h2>
+          <ul style="list-style: none; margin-top: 40px;">
+            <li style="margin-bottom: 22px;"><i class="fas fa-external-link-alt" style="color: var(--red-vibrant); margin-right: 16px;"></i> <a href="#" style="font-size: 1.15rem; font-weight: 500; transition: var(--transition);">Ministry of Commerce - Pakistan</a></li>
+            <li style="margin-bottom: 22px;"><i class="fas fa-external-link-alt" style="color: var(--red-vibrant); margin-right: 16px;"></i> <a href="#" style="font-size: 1.15rem;">FPCCI</a></li>
+            <li style="margin-bottom: 22px;"><i class="fas fa-external-link-alt" style="color: var(--red-vibrant); margin-right: 16px;"></i> <a href="#" style="font-size: 1.15rem;">Trade Development Authority (TDAP)</a></li>
+            <li style="margin-bottom: 22px;"><i class="fas fa-external-link-alt" style="color: var(--red-vibrant); margin-right: 16px;"></i> <a href="#" style="font-size: 1.15rem;">East African Community (EAC)</a></li>
+            <li style="margin-bottom: 22px;"><i class="fas fa-external-link-alt" style="color: var(--red-vibrant); margin-right: 16px;"></i> <a href="#" style="font-size: 1.15rem;">ECOWAS</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="section-title"><span class="accent">Contact Us</span></h2>
+          <div class="contact-panel" style="margin-top: 20px;">
+            <h3 style="font-size: 2rem; color: var(--green-deep); margin-bottom: 28px;">Central Secretariat</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;"><i class="fas fa-location-dot" style="color: var(--red-vibrant); margin-right: 16px;"></i> H-41, P.E.C.H.S Block-2, Karachi, Pakistan.</p>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;"><i class="fas fa-phone" style="color: var(--red-vibrant); margin-right: 16px;"></i> +92 21 3452 8802 - 03</p>
+            <p style="font-size: 1.2rem; margin-bottom: 32px;"><i class="fas fa-envelope" style="color: var(--red-vibrant); margin-right: 16px;"></i> info@pakistanafrica.com</p>
+            <div style="display: flex; gap: 28px;">
+              <i class="fab fa-facebook-f" style="font-size: 2.2rem; color: var(--green-deep); transition: var(--transition);"></i>
+              <i class="fab fa-instagram" style="font-size: 2.2rem; color: var(--green-deep);"></i>
+              <i class="fab fa-youtube" style="font-size: 2.2rem; color: var(--green-deep);"></i>
+              <i class="fab fa-linkedin-in" style="font-size: 2.2rem; color: var(--green-deep);"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER – NOBLE, RED BORDER -->
+  <footer class="footer-noble">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; gap: 100px; justify-content: space-between;">
+        <div style="max-width: 380px;">
+          <div style="font-size: 2rem; font-weight: 900; color: white;">PAKISTAN AFRICA<span style="color: var(--red-vibrant);"> ECONOMIC COUNCIL</span></div>
+          <div style="color: #9FC5B0; margin-top: 16px; letter-spacing: 3px;">SECP LICENSED · SECTION 42 · NON-PROFIT</div>
+          <p style="margin-top: 32px; color: #BDD9CE; line-height: 1.8;">The only institutional bridge with legal mandate between Pakistan and 54 African nations – trade, investment, innovation, and shared prosperity.</p>
+        </div>
+        <div>
+          <h4 style="color: white; font-size: 1.5rem; margin-bottom: 32px;">Quick links</h4>
+          <ul style="list-style: none; color: #BDD9CE;">
+            <li style="margin-bottom: 18px; font-size: 1.05rem;">About PAEC</li>
+            <li style="margin-bottom: 18px;">Insights & Reports</li>
+            <li style="margin-bottom: 18px;">Events</li>
+            <li style="margin-bottom: 18px;">Contact</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: white; font-size: 1.5rem; margin-bottom: 32px;">Need assistance?</h4>
+          <div style="background: rgba(255,255,255,0.08); border-radius: 60px; padding: 18px 32px; color: white; border: 1px solid rgba(255,255,255,0.1);">
+            <i class="fas fa-headset" style="margin-right: 12px; color: var(--yellow-mustard);"></i> +92 21 3452 8802
+          </div>
+          <p style="color: #BDD9CE; margin-top: 24px;"><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@pakistanafrica.com</p>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 80px; padding-top: 40px; display: flex; justify-content: space-between; flex-wrap: wrap; color: #9FC5B0;">
+        <span>© 2025 Pakistan Africa Economic Council. All Rights Reserved.</span>
+        <span>Powered by Softseek International <i class="fas fa-crown" style="color: var(--yellow-mustard); margin-left: 10px;"></i></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SWIPER INIT -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: { delay: 4500, disableOnInteraction: false },
+      pagination: { el: ".swiper-pagination", clickable: true },
+      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+      breakpoints: {
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }
+    });
+  </script>
+</body>
+</html>
