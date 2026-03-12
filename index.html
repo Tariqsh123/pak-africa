@@ -3,29 +3,594 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WTINext · Global Commerce Intelligence</title>
+  <title>WTINext · Global Business Intelligence</title>
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-  <link rel="stylesheet" href="style.css">
+  <!-- flag icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.6.6/css/flag-icons.min.css"/>
+  <!-- Premium font -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+  </style>
+  <style>
+    /* ----- RESET & MODERN VARIABLES ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --deep-navy: #0b1c2b;
+      --teal-deep: #0f2c3a;
+      --teal-velvet: #1a4b62;
+      --gold-luxury: #c9a14b;
+      --gold-light: #dbb668;
+      --ivory: #f8fafc;
+      --border-light: rgba(201, 161, 75, 0.2);
+      --gradient-gold: linear-gradient(145deg, #c9a14b, #b38b3e);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      background-color: #0b1c2b;
+      color: var(--ivory);
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    section {
+      padding: 40px 0;
+      position: relative;
+    }
+
+    /* subtle dividers between sections */
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-luxury), transparent);
+      opacity: 0.2;
+    }
+
+    /* ----- TYPOGRAPHY ----- */
+    h1, h2, h3, .headline-premium {
+      font-family: 'Bruno Ace SC', cursive;
+      letter-spacing: 0.02em;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #ffffff, var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    h2 .accent {
+      color: var(--gold-luxury);
+      -webkit-text-fill-color: var(--gold-luxury);
+      border-bottom: 2px solid var(--gold-luxury);
+      padding-bottom: 6px;
+    }
+
+    /* header */
+    header {
+      background: rgba(10, 26, 36, 0.98);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .navbar {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 8px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      height: 70px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ivory);
+      font-weight: 400;
+      transition: var(--transition);
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.85;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--gold-luxury);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--gold-luxury);
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .contact a {
+      background: var(--gradient-gold);
+      color: #0b1c2b !important;
+      padding: 12px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      opacity: 1;
+      border: none;
+    }
+    .contact a::after { display: none; }
+    .contact a:hover { background: #b38b3e; }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      color: var(--gold-luxury);
+      cursor: pointer;
+    }
+
+    @media (max-width: 1000px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #0b1c2b;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s;
+        border-top: 1px solid var(--gold-luxury);
+      }
+      .nav-links.active { max-height: 600px; padding: 25px 0; }
+      .nav-links li { width: 100%; text-align: center; padding: 12px 0; }
+      .nav-links a::after { display: none; }
+    }
+
+    /* hero */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat fixed;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, #0a1a24 20%, rgba(10,26,36,0.5) 70%, rgba(0,0,0,0.2));
+      z-index: 1;
+    }
+    .hero-content {
+      max-width: 1000px;
+      margin-left: 5%;
+      position: relative;
+      z-index: 3;
+    }
+    .hero-subtitle {
+      font-family: 'Bruno Ace SC', cursive;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--gold-luxury);
+      padding: 12px 32px;
+      border-radius: 60px;
+      display: inline-block;
+      color: var(--gold-light);
+      margin-bottom: 35px;
+    }
+    .hero-title {
+      font-size: clamp(2.3rem, 10vw, 4rem) ;
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+    .hero-title .accent { color: var(--gold-luxury); }
+    .hero-text { font-size: 1.5rem; max-width: 750px; margin: 30px 0; color: #dceaf5; }
+    .hero-buttons { display: flex; gap: 30px; margin: 40px 0; flex-wrap: wrap; }
+    .btn-primary, .btn-secondary {
+      padding: 16px 48px;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      text-transform: uppercase;
+    }
+    .btn-primary {
+      background: var(--gradient-gold);
+      color: #0b1c2b;
+      box-shadow: 0 10px 25px -5px rgba(201,161,75,0.3);
+    }
+    .btn-primary:hover { background: #b38b3e; transform: translateY(-3px); }
+    .btn-secondary {
+      border: 2px solid var(--gold-luxury);
+      color: var(--gold-luxury);
+      background: transparent;
+    }
+    .btn-secondary:hover { background: var(--gold-luxury); color: #0b1c2b; transform: translateY(-3px); }
+
+    /* marquee flags */
+    .country-marquee {
+      background: rgba(0,0,0,0.2);
+      opacity: 0.3;
+      padding: 40px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 60px;
+      animation: scrollFlags 50s linear infinite;
+      width: max-content;
+    }
+    .marquee-track span { font-size: 3rem; transition: transform 0.2s; opacity: 0.9; }
+    .marquee-track span:hover { transform: scale(1.2); opacity: 1; }
+    @keyframes scrollFlags { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* stats - clean, no boxes */
+    .stats-grid {
+      display: flex;
+      gap: 60px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 30px 0;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 3.5rem;
+      font-family: 'Bruno Ace SC', cursive;
+      color: var(--gold-luxury);
+      line-height: 1.2;
+    }
+    .stat-label {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #9ab3c5;
+    }
+
+    /* image+text sections - flowing, no boxes */
+    .image-text-grid {
+      display: flex;
+      gap: 80px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 60px 0;
+    }
+    .image-text-grid.reverse { flex-direction: row-reverse; }
+    .it-image {
+      flex: 1 1 400px;
+    }
+    .it-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 30px;
+      transition: var(--transition);
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
+    }
+    .it-image img:hover { transform: scale(1.02); }
+    .it-text {
+      flex: 1 1 400px;
+    }
+    .it-text h3 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--gold-luxury);
+      margin-bottom: 25px;
+    }
+    .it-text p {
+      font-size: 1.2rem;
+      color: #c0d4e0;
+      margin-bottom: 20px;
+    }
+
+    /* feature list - minimal, no cards */
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin: 60px 0;
+    }
+    .feature-item {
+      text-align: center;
+    }
+    .feature-item i {
+      font-size: 3rem;
+      color: var(--gold-luxury);
+      margin-bottom: 20px;
+    }
+    .feature-item h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: var(--ivory);
+    }
+    .feature-item p {
+      color: #a0b8c5;
+    }
+
+    /* chairman - elegant, no boxy feel */
+    .chairman-section {
+      display: flex;
+      gap: 70px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 60px 0;
+      padding: 40px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .chairman-image {
+      flex: 1 1 280px;
+    }
+    .chairman-image img {
+      width: 100%;
+      border-radius: 30px;
+      box-shadow: 0 20px 30px -10px black;
+    }
+    .chairman-content {
+      flex: 2 1 400px;
+    }
+    .chairman-name {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-family: 'Bruno Ace SC', cursive;
+      color: var(--gold-luxury);
+      margin-bottom: 15px;
+    }
+    .chairman-titles {
+      color: #b0c4d4;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed var(--border-light);
+    }
+    .chairman-bio {
+      font-size: 1.3rem;
+      font-style: italic;
+      border-left: 4px solid var(--gold-luxury);
+      padding-left: 30px;
+    }
+
+    /* map section - clean */
+    .map-section {
+      text-align: center;
+      margin: 60px 0;
+      padding: 40px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .map-image {
+      max-width: 100%;
+      border-radius: 30px;
+      margin: 40px 0 30px;
+      box-shadow: 0 20px 30px -10px black;
+    }
+    .map-stats {
+      display: flex;
+      gap: 50px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .map-stat span { color: var(--gold-luxury); font-weight: 600; }
+
+    /* partners - just images, no boxes */
+    .partner-logos {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 50px 0;
+    }
+    .partner-logos img {
+      height: 80px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      filter: brightness(0.9) grayscale(0.2);
+      transition: var(--transition);
+      opacity: 0.9;
+    }
+    .partner-logos img:hover {
+      filter: brightness(1.2) grayscale(0);
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    /* newsletter - minimal */
+    .newsletter {
+      text-align: center;
+      margin: 60px 0;
+      padding: 50px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .newsletter h3 {
+      font-size: 2rem;
+      color: var(--gold-luxury);
+      margin-bottom: 15px;
+    }
+    .newsletter p {
+      color: #a0b8c5;
+      margin-bottom: 30px;
+    }
+    .newsletter-input {
+      display: flex;
+      max-width: 600px;
+      margin: 0 auto;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .newsletter-input input {
+      flex: 2 1 300px;
+      padding: 16px 25px;
+      border-radius: 60px;
+      border: 1px solid var(--border-light);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      font-size: 1rem;
+    }
+    .newsletter-input button {
+      padding: 16px 40px;
+      border-radius: 60px;
+      border: none;
+      background: var(--gradient-gold);
+      color: #0b1c2b;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .newsletter-input button:hover { background: #b38b3e; }
+
+    /* quote */
+    .quote-block {
+      text-align: center;
+      font-size: 1.8rem;
+      padding: 60px 30px;
+      max-width: 1000px;
+      margin: 40px auto;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    /* footer */
+    footer {
+      background: #0a1a24;
+      padding: 60px 0 25px;
+      margin-top: 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 2fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .footer-logo img { height: 60px; margin-bottom: 15px; }
+    .footer-logo p { color: #8fa8b5; font-size: 0.95rem; max-width: 260px; }
+    .footer-links { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; }
+    .footer-col h4 { color: var(--gold-luxury); font-size: 1.1rem; margin-bottom: 20px; }
+    .footer-col ul li { margin-bottom: 12px; list-style: none; }
+    .footer-col ul li a { color: #a0b8c5; text-decoration: none; transition: var(--transition); }
+    .footer-col ul li a:hover { color: var(--gold-luxury); }
+    .footer-newsletter h4 { color: var(--gold-luxury); margin-bottom: 15px; }
+    .footer-newsletter input { width: 100%; padding: 12px; border-radius: 40px; border: 1px solid var(--border-light); background: rgba(255,255,255,0.05); color: white; margin-bottom: 12px; }
+    .footer-newsletter button { padding: 12px; border-radius: 40px; border: none; background: var(--gradient-gold); color: #0b1c2b; font-weight: 600; cursor: pointer; width: 100%; }
+    .footer-social { grid-column: 1 / -1; text-align: center; margin: 30px 0 20px; }
+    .footer-social a { display: inline-flex; width: 42px; height: 42px; border-radius: 50%; background: rgba(31,75,98,0.5); color: white; align-items: center; justify-content: center; margin: 0 8px; transition: var(--transition); border: 1px solid var(--border-light); }
+    .footer-social a:hover { background: var(--gold-luxury); color: #0b1c2b; }
+    .footer-bottom { grid-column: 1 / -1; text-align: center; color: #6d8b9c; border-top: 1px solid var(--border-light); padding-top: 25px; margin-top: 20px; }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .animate-on-scroll.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .footer-logo p { margin: 0 auto; }
+    }
+    .core-services-h2{
+      text-align: center;
+    }
+    @media(max-width:600px){
+      .hero-subtitle{
+        font-size: 13px;
+        width: 90%;
+        padding: 10px;
+        text-align: center;
+      }
+      .hero-title{
+        text-align: center;
+      }
+      .hero-content{
+        margin: 0 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .hero-text {
+    font-size: medium;}
+    .hero-buttons{
+      justify-content: center;
+      align-items: center;
+    }
+    .it-text h3 {
+    font-size: clamp(1.5rem, 4vw, 2.8rem);
+    text-align: center;
+  }.it-text p {
+    font-size: medium;
+    text-align: center;}
+    .feature-item h3 {
+    font-size: medium;}
+    .chairman-name {
+    font-size: clamp(1.6rem, 4vw, 3.2rem);
+    text-align: center;
+    }
+    .chairman-titles {
+    color: #b0c4d4;
+    text-align: center;
+    font-size: small;}
+    }
+  </style>
 </head>
 <body>
 
 <header>
   <nav class="navbar">
     <div class="logo">
-      <img src="images/logo.png" alt="WTINext" onerror="this.src='https://placehold.co/200x70/0a7d3b/white?text=WTINext'">
+      <img src="images/logo.png" alt="WTINext" onerror="this.src='https://placehold.co/200x70/0f2c3a/gold?text=WTINext'">
     </div>
     <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
     <ul class="nav-links" id="navMenu">
       <li><a href="#">Home</a></li>
-      <li class="dropdown">
-        <a href="#">Ecosystem <i class="fas fa-chevron-down"></i></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Intelligence Engine</a></li>
-          <li><a href="#">Future Buying</a></li>
-          <li><a href="#">Youth E-Stores</a></li>
-        </ul>
-      </li>
+      <li><a href="#">Intelligence</a></li>
+      <li><a href="#">Ecosystem</a></li>
       <li><a href="#">Philosophy</a></li>
       <li><a href="#">Affiliate</a></li>
       <li class="contact"><a href="#">Join Movement</a></li>
@@ -33,240 +598,212 @@
   </nav>
 </header>
 
-<!-- HERO - green dominant -->
+<!-- HERO -->
 <section class="hero">
-  <video autoplay muted loop playsinline class="hero-video">
-    <source src="video/hero-bg.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-subtitle animate-on-scroll">WELCOME TO THE NEXT ECONOMY</div>
-    <h1 class="hero-title animate-on-scroll">WTINext <span class="accent">Intelligent</span> Global Commerce</h1>
-    <p class="hero-text animate-on-scroll">First AI‑powered Trade Intelligence & Future Buying Ecosystem — connecting exporters, youth, industries, and conscious consumers worldwide.</p>
-    <div class="hero-buttons animate-on-scroll">
-      <a href="#" class="btn-primary">Explore Global Intelligence</a>
-      <a href="#" class="btn-secondary">Launch Your E-Store</a>
+  <div class="hero-content animate-on-scroll">
+    <div class="hero-subtitle">GLOBAL BUSINESS INTELLIGENCE</div>
+    <h1 class="hero-title">The Next Generation <span class="accent">E-Business Newspaper</span></h1>
+    <p class="hero-text">“Connecting Global Markets, Intelligence and Opportunity.”</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary">Explore Intelligence</a>
+      <a href="#" class="btn-secondary">Discover Opportunities</a>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section-light">
+<!-- MARQUEE FLAGS -->
+<div class="country-marquee">
+  <div class="marquee-track">
+    <span class="fi fi-us"></span> <span class="fi fi-gb"></span> <span class="fi fi-de"></span> <span class="fi fi-fr"></span> <span class="fi fi-jp"></span> <span class="fi fi-cn"></span> <span class="fi fi-in"></span> <span class="fi fi-br"></span> <span class="fi fi-za"></span> <span class="fi fi-ae"></span> <span class="fi fi-sg"></span> <span class="fi fi-au"></span> <span class="fi fi-kr"></span> <span class="fi fi-ru"></span> <span class="fi fi-it"></span> <span class="fi fi-es"></span> <span class="fi fi-mx"></span> <span class="fi fi-ca"></span> <span class="fi fi-sa"></span> <span class="fi fi-ng"></span>
+    <span class="fi fi-us"></span> <span class="fi fi-gb"></span> <span class="fi fi-de"></span>
+  </div>
+</div>
+
+<!-- STATS - clean, no boxes -->
+<section>
   <div class="container">
-    <h2 class="animate-on-scroll">About <span class="accent">WTINext</span></h2>
-    <p class="section-subhead animate-on-scroll">Building the world's first intelligent commerce civilization</p>
-    <div class="about-grid">
-      <div class="about-col animate-on-scroll">
-        <h3>Beyond a platform — a movement</h3>
-        <p>WTINext (World Trade Intelligence) was founded to democratize global trade intelligence. We combine AI, predictive analytics, and a future‑buying mechanism to create a self-sustaining economic ecosystem. Exporters, youth entrepreneurs, and conscious consumers co-create a transparent, efficient, and rational global marketplace.</p>
-        <p>Our intelligence engine processes real‑time data from 150+ countries, delivering verified leads, risk analysis, and 3‑5 year industry forecasts. With the Future Buying System, consumers lock prices today, and industries receive advance capital — aligning demand with production.</p>
-        <div class="about-stats">
-          <div class="stat-item">
-            <div class="stat-number">150+</div>
-            <div class="stat-label">Countries covered</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">12B</div>
-            <div class="stat-label">Data points</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">50K+</div>
-            <div class="stat-label">Active members</div>
-          </div>
-        </div>
-      </div>
-      <div class="about-col animate-on-scroll">
-        <img src="images/home-about-us-image.png" alt="WTINext global" class="about-image" onerror="this.src='https://placehold.co/900x700/0a7d3b/white?text=Global+Intelligence+HUB'">
-      </div>
+    <div class="stats-grid animate-on-scroll">
+      <div class="stat-item"><div class="stat-number">150+</div><div class="stat-label">Countries</div></div>
+      <div class="stat-item"><div class="stat-number">12B</div><div class="stat-label">Data points</div></div>
+      <div class="stat-item"><div class="stat-number">50K+</div><div class="stat-label">Members</div></div>
+      <div class="stat-item"><div class="stat-number">30+</div><div class="stat-label">Industries</div></div>
     </div>
   </div>
 </section>
 
-<!-- PROBLEM -->
-<section class="section-dark">
+<!-- SECTION 1: Global Markets -->
+<section>
   <div class="container">
-    <h2 class="animate-on-scroll">The <span class="accent">world</span> is off balance</h2>
-    <div class="grid-2">
-      <div class="col animate-on-scroll">
-        <ul class="big-list">
-          <li><i class="fas fa-chart-line"></i> Overconsumption · Inflation pressure · Inventory waste</li>
-          <li><i class="fas fa-globe"></i> Disconnected markets · Youth unemployment</li>
-          <li><i class="fas fa-cubes"></i> Blind production · Unpredictable demand</li>
-          <li><i class="fas fa-truck"></i> Inefficient supply chains</li>
-        </ul>
-      </div>
-      <div class="col animate-on-scroll">
-        <div style="background:rgba(125, 10, 10, 0.1); padding:40px; border-radius:60px; border-left:10px solid red; text-align:left;">
-          <p style="font-size:2rem; font-weight:500;">Random consumption must end.</p>
-          <p style="color:#bbccbb; font-size:1.2rem;">Intelligent Trade. Rational Demand. Predictive Commerce.</p>
-        </div>
-      </div>
+    <div class="image-text-grid animate-on-scroll">
+      <div class="it-image"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" alt="Global Markets"></div>
+      <div class="it-text"><h3>Global Markets Intelligence</h3><p>Real‑time news, economic statistics, trade insights across Africa, Asia, Europe and Americas. Our data center delivers import/export analysis, commodity insights and industry forecasts.</p></div>
     </div>
   </div>
 </section>
 
-<!-- INTELLIGENCE ENGINE -->
-<section class="section-light">
+<!-- Emerging Markets -->
+<section style="background:#0a1f2a;">
   <div class="container">
-    <h2 class="animate-on-scroll"><span class="accent">AI</span> Intelligence Engine</h2>
-    <p class="section-subhead animate-on-scroll">Real‑time leads · 3‑year forecasts · risk mapping · for everyone</p>
-    <div class="feature-grid">
-      <div class="feature-card animate-on-scroll"><div class="feature-icon"><i class="fas fa-chart-pie"></i></div><h3>Export/Import Leads</h3><p>Verified, real‑time, with risk scoring, opportunity mapping, and partner matching.</p></div>
-      <div class="feature-card animate-on-scroll"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>Industry Forecast</h3><p>3‑5 year commodity predictions, demand heat maps, geo‑economic alerts.</p></div>
-      <div class="feature-card animate-on-scroll"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Market Entry Strategy</h3><p>Risk analysis, entry planning, and predictive trade analytics for 150+ markets.</p></div>
+    <div class="image-text-grid reverse animate-on-scroll">
+      <div class="it-image"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Emerging Markets"></div>
+      <div class="it-text"><h3>Emerging Markets <span class="accent">Insights</span></h3><p>Deep-dive analysis into Africa-Asia trade corridors, Latin American growth, and Middle Eastern diversification. We identify opportunities before they become mainstream.</p></div>
     </div>
   </div>
 </section>
 
-<!-- YOUTH E‑STORE -->
-<section class="section-dark">
+<!-- CORE SERVICES - as feature list, no boxes -->
+<section>
   <div class="container">
-    <h2 class="animate-on-scroll"><span class="accent">Youth</span> E‑Store Revolution</h2>
-    <div class="grid-2">
-      <div class="col animate-on-scroll">
-        <p style="font-size:1.6rem; font-weight:300; text-align:left; margin-bottom:25px;">Launch your verified global e‑store. Sell globally, access AI marketing tools, earn commissions — build digital assets.</p>
-        <div style="background:green; padding:18px 30px; border-radius:100px; width:fit-content; font-weight:500;">Shopify + LinkedIn + Global Commission Network</div>
-      </div>
-      <div class="col animate-on-scroll">
-        <img src="images/home-about-us-image.png" alt="Youth E-Stores" class="img-display" onerror="this.src='https://placehold.co/800x500/0a3d1a/white?text=Youth+E-Stores'">
-      </div>
+    <h2 class="animate-on-scroll core-services-h2">Core <span class="accent">Services</span></h2>
+    <div class="feature-list">
+      <div class="feature-item"><i class="fas fa-newspaper"></i><h3>Daily News</h3><p>Trade, finance, policy updates</p></div>
+      <div class="feature-item"><i class="fas fa-chart-pie"></i><h3>Data Analytics</h3><p>Import/export trends & forecasts</p></div>
+      <div class="feature-item"><i class="fas fa-robot"></i><h3>AI Forecasts</h3><p>3-5 year commodity outlook</p></div>
     </div>
   </div>
 </section>
 
-<!-- FUTURE BUYING -->
-<section class="section-light">
+<!-- Data Insights -->
+<section style="background:#0b1c2b;">
   <div class="container">
-    <h2 class="animate-on-scroll"><span class="accent">Future</span> Buying · Game Changer</h2>
-    <div class="grid-2">
-      <div class="col animate-on-scroll">
-        <img src="images/home-about-us-image.png" alt="Future Buying" class="img-display" onerror="this.src='https://placehold.co/800x500/1a3d1a/white?text=Lock+Future+Price'">
-      </div>
-      <div class="col animate-on-scroll">
-        <ul class="big-list">
-          <li><i class="fas fa-lock"></i> Lock future price today</li>
-          <li><i class="fas fa-users"></i> Create demand pools</li>
-          <li><i class="fas fa-industry"></i> Invest directly in industries</li>
-          <li><i class="fas fa-tags"></i> Secure lower‑than‑wholesale pricing</li>
-          <li><i class="fas fa-chart-pie"></i> Predictable demand for producers</li>
-        </ul>
-      </div>
+    <div class="image-text-grid animate-on-scroll">
+      <div class="it-image"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Data Insights"></div>
+      <div class="it-text"><h3>Real-time <span class="accent">Data Insights</span></h3><p>Dashboards displaying live trade flows, economic indicators, and predictive analytics. Empower your decisions with our intelligence engine.</p></div>
     </div>
   </div>
 </section>
 
-<!-- RATIONAL CONSUMPTION -->
-<section class="section-dark">
+<!-- TESTIMONIALS - as feature list -->
+<!-- <section>
   <div class="container">
-    <h2 class="animate-on-scroll"><span class="accent">Rational</span> Consumption</h2>
-    <p class="section-subhead">Product analytical reports · Economic Order Quantity · Sustainability score</p>
-    <div class="feature-grid">
-      <div class="feature-card animate-on-scroll"><div class="feature-icon"><i class="fas fa-file-alt"></i></div><h3>Behavioural Analysis</h3><p>Innovation prediction & rationality index for smarter choices.</p></div>
-      <div class="feature-card animate-on-scroll"><div class="feature-icon"><i class="fas fa-calculator"></i></div><h3>Economic Order Quantity</h3><p>Optimize purchasing, reduce waste, same budget.</p></div>
-      <div class="feature-card animate-on-scroll"><div class="feature-icon"><i class="fas fa-leaf"></i></div><h3>Sustainability Score</h3><p>Measure environmental impact, promote eco‑conscious trade.</p></div>
+    <h2 class="animate-on-scroll">What <span class="accent">Leaders Say</span></h2>
+    <div class="feature-list">
+      <div class="feature-item"><i class="fas fa-quote-right"></i><p>"WTINext transformed our market entry strategy."</p><h4>— CEO, Global Exports</h4></div>
+      <div class="feature-item"><i class="fas fa-quote-right"></i><p>"Future buying system is revolutionary."</p><h4>— Director, Manufacturing</h4></div>
+      <div class="feature-item"><i class="fas fa-quote-right"></i><p>"Youth e-store program opened new revenue streams."</p><h4>— Founder, Youth Chamber</h4></div>
     </div>
   </div>
-</section>
+</section> -->
 
-<!-- GLOBAL AFFILIATE -->
-<section class="section-light">
+<!-- NEWS TICKER -->
+<!-- Youth E-Stores -->
+<section>
   <div class="container">
-    <h2 class="animate-on-scroll"><span class="accent">Global</span> Affiliate & Trade Hub</h2>
-    <div style="display:flex; flex-wrap:wrap; gap:40px; justify-content:center; margin:50px 0;">
-      <div style="background:white; border-radius:60px; padding:40px; max-width:500px; text-align:left; box-shadow:0 10px 30px rgba(0,30,0,0.05);">
-        <p style="font-size:2.2rem; font-weight:400; color:green;">10% · 5% · 2%</p>
-        <p>Multi‑level on verified transactions. Value‑based marketing economy.</p>
-      </div>
-      <div style="background:white; border-radius:60px; padding:40px; max-width:500px; text-align:left; box-shadow:0 10px 30px rgba(0,30,0,0.05);">
-        <p style="font-size:1.6rem;"><i class="fas fa-check-circle" style="color:green;"></i> Verified leads · secure docs · AI partner matching</p>
-        <p style="margin-top:20px;">Your digital trade embassy — 24/7.</p>
-      </div>
+    <div class="image-text-grid reverse animate-on-scroll">
+      <div class="it-image"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" alt="Youth E-Stores"></div>
+      <div class="it-text"><h3>Youth E‑Store Revolution</h3><p>Launch verified global e‑stores with AI marketing tools, commission network, and Shopify + LinkedIn integration. Zero‑barrier for young entrepreneurs.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PHILOSOPHY (green dominant) -->
-<section class="section-dark">
+<!-- CHAIRMAN SECTION - elegant flow -->
+<section style="background:#0b1c2b;">
   <div class="container">
-    <div class="philosophy-container animate-on-scroll">
-      <div class="philosophy-header">
-        <h3><span>Our Philosophy</span> · The Next Economy Code</h3>
-      </div>
-      <div class="philosophy-grid">
-        <div class="philosophy-principle"><i class="fas fa-scale-balanced"></i><h4>Trade reduces inequality</h4><p>We believe global commerce must lift all boats. WTINext democratizes intelligence, giving equal opportunity to emerging economies and youth.</p></div>
-        <div class="philosophy-principle"><i class="fas fa-heart"></i><h4>Commerce increases happiness</h4><p>We measure success by well‑being, not just volume. Rational consumption aligns spending with genuine needs, reducing stress and waste.</p></div>
-        <div class="philosophy-principle"><i class="fas fa-brain"></i><h4>Intelligence democratized</h4><p>Advanced AI and data shouldn't be exclusive. Our engine provides institutional‑grade forecasts to every entrepreneur, anywhere.</p></div>
-        <div class="philosophy-principle"><i class="fas fa-rocket"></i><h4>Youth lead the economy</h4><p>The next generation builds the future. Through zero‑barrier e‑stores and affiliate networks, we turn youth into global traders.</p></div>
-        <div class="philosophy-principle"><i class="fas fa-chart-line"></i><h4>Demand engineered, not guessed</h4><p>Future Buying transforms speculation into precision. Industries produce what is pre‑committed, eliminating waste and overproduction.</p></div>
-        <div class="philosophy-principle"><i class="fas fa-globe"></i><h4>One global commerce village</h4><p>Borders fade when intelligence flows. WTINext creates a unified, transparent, and cooperative trade ecosystem for all.</p></div>
-      </div>
-      <div class="who-we-serve">
-        <h4>Who we serve</h4>
-        <div class="serve-badges">
-          <span class="badge">Exporters</span><span class="badge">Importers</span><span class="badge">SMEs</span><span class="badge">Youth Entrepreneurs</span><span class="badge">Marketing Professionals</span><span class="badge">Conscious Consumers</span><span class="badge">Investors</span><span class="badge">Policy Thinkers</span>
-        </div>
+    <div class="chairman-section animate-on-scroll">
+      <div class="chairman-image"><img src="https://theinnovatorsschoolingsystem.com/images/chairman.webp" alt="Prof Nadeem Ahmed Faraz"></div>
+      <div class="chairman-content">
+        <div class="chairman-name">Prof Nadeem Ahmed Faraz</div>
+        <div class="chairman-titles">Chairman – PERTC · PYEC · Happy Pakistan Welfare Trust · Convener Research & Youth Policy · PAEC · Head of Research YCCP</div>
+        <div class="chairman-bio">“Renowned economist, researcher and business strategist leading the editorial vision of Global Business Intelligence.”</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ADVANTAGE -->
-<section class="section-light">
-  <div class="container advantage-wrapper">
-    <h2 class="animate-on-scroll"><span class="accent">Advantage</span> · Old vs Next</h2>
-    <p class="advantage-intro animate-on-scroll">The gap between industrial‑age commerce and the intelligent economy. WTINext rewrites the rules.</p>
-    <div class="comparison-grid animate-on-scroll">
-      <div class="comp-card traditional">
-        <h3><i class="fas fa-store-alt"></i> Traditional Commerce</h3>
-        <ul class="comp-list">
-          <li><i class="fas fa-times-circle"></i> Reactive — responds after crises</li>
-          <li><i class="fas fa-times-circle"></i> Overproduction drives waste</li>
-          <li><i class="fas fa-times-circle"></i> Discounts & promotions destroy value</li>
-          <li><i class="fas fa-times-circle"></i> Seller‑centric marketplace</li>
-          <li><i class="fas fa-times-circle"></i> Limited visibility, information asymmetry</li>
-        </ul>
-      </div>
-      <div class="comp-card wtinext">
-        <h3><i class="fas fa-microchip"></i> WTINext Ecosystem</h3>
-        <ul class="comp-list">
-          <li><i class="fas fa-check-circle"></i> Predictive — AI forecasts demand 3‑5 years ahead</li>
-          <li><i class="fas fa-check-circle"></i> Demand‑engineered production, zero waste</li>
-          <li><i class="fas fa-check-circle"></i> Future price lock, value preservation</li>
-          <li><i class="fas fa-check-circle"></i> Ecosystem‑centric, all participants benefit</li>
-          <li><i class="fas fa-check-circle"></i> Full transparency, verified data for all</li>
-        </ul>
-      </div>
-    </div>
-    <div class="advantage-footer animate-on-scroll">
-      <p>From reactive to predictive. From waste to precision. From isolated to unified.<br>This is the next economy.</p>
-    </div>
-  </div>
-</section>
-
-<!-- VISION 2035 -->
-<section class="section-dark">
+<!-- MAP SECTION - clean -->
+<section>
   <div class="container">
-    <h2 class="animate-on-scroll"><span class="accent">Vision</span> 2035</h2>
-    <p style="font-size:2.2rem; max-width:1100px; margin:0 auto; font-weight:300;">World’s leading Intelligent Commerce Infrastructure — empowering youth, stabilizing demand, sustainable prosperity.</p>
+    <div class="map-section animate-on-scroll">
+      <h2>Global <span class="accent">Presence</span></h2>
+      <img src="images/world-map.png" alt="World Map" class="map-image" style="width:100%;box-shadow: none;">
+      <div class="map-stats">
+        <div class="map-stat"><span>150+</span> Countries</div>
+        <div class="map-stat"><span>450+</span> Trade Hubs</div>
+        <div class="map-stat"><span>24/7</span> Intelligence</div>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- Trade Hubs -->
+<section style="background:#0a1f2a;">
+  <div class="container">
+    <div class="image-text-grid animate-on-scroll">
+      <div class="it-image"><img src="https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?q=80&w=2036&auto=format&fit=crop" alt="Trade Hubs"></div>
+      <div class="it-text"><h3>Strategic <span class="accent">Trade Hubs</span></h3><p>Analysis of key ports, free trade zones, and logistics corridors. We map the infrastructure powering global commerce.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED PARTNERS - just images, no boxes -->
+<section>
+  <div class="container">
+    <h2 class="animate-on-scroll core-services-h2">Trusted <span class="accent">Partners</span></h2>
+    <div class="partner-logos animate-on-scroll">
+      <img src="https://theinnovatorsschoolingsystem.com/images/collabration-logo-1.webp" alt="Partner">
+      <img src="https://theinnovatorsschoolingsystem.com/images/collabration-logo-2.webp" alt="Partner">
+      <img src="https://theinnovatorsschoolingsystem.com/images/collabration-logo-3.webp" alt="Partner">
+      <img src="https://theinnovatorsschoolingsystem.com/images/collabration-logo-4.webp" alt="Partner">
+      <img src="https://theinnovatorsschoolingsystem.com/images/collabration-logo-5.webp" alt="Partner">
+      <img src="https://theinnovatorsschoolingsystem.com/images/collabration-logo-6.webp" alt="Partner">
+      <img src="https://theinnovatorsschoolingsystem.com/images/collabration-logo-7.webp" alt="Partner">
+      <img src="https://pertc.org/images/collabration-logo-2.webp" alt="PERTC">
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section>
+  <div class="container">
+    <div class="newsletter animate-on-scroll">
+      <h3>Stay Ahead with Global Intelligence</h3>
+      <p>Weekly insights, trade opportunities, and market forecasts</p>
+      <div class="newsletter-input">
+        <input type="email" placeholder="Your email address">
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<!-- <section>
+  <div class="container">
+    <div class="quote-block animate-on-scroll">
+      <i class="fas fa-quote-left" style="color:var(--gold-luxury); font-size:3.5rem;"></i>
+      <p style="font-size:2rem; font-family:'Bruno Ace SC';">Knowledge Drives Markets. Intelligence Creates Opportunity.</p>
+      <div style="margin-top:30px;"> <span class="fi fi-us"></span> <span class="fi fi-gb"></span> <span class="fi fi-de"></span> </div>
+    </div>
+  </div>
+</section> -->
 
 <!-- FOOTER -->
 <footer>
-  <div class="container footer-grid">
-    <div class="footer-col"><h4>WTINext</h4><ul><li><a href="#">About</a></li><li><a href="#">Intelligence Engine</a></li><li><a href="#">Future Buying</a></li><li><a href="#">E-Stores</a></li></ul></div>
-    <div class="footer-col"><h4>Ecosystem</h4><ul><li><a href="#">Exporters</a></li><li><a href="#">Importers</a></li><li><a href="#">Youth</a></li><li><a href="#">Consumers</a></li></ul></div>
-    <div class="footer-col"><h4>Resources</h4><ul><li><a href="#">Blog</a></li><li><a href="#">Whitepaper</a></li><li><a href="#">Vision 2035</a></li></ul></div>
-    <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li></ul></div>
-  </div>
-  <div class="social-links">
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#"><i class="fab fa-x-twitter"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 WTINext — Global Commerce Civilization. All rights reserved.</p>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="WTINext" onerror="this.src='https://placehold.co/200x70/0f2c3a/gold?text=WTINext'">
+        <p>Global Business Intelligence · The next generation e-business newspaper connecting markets, intelligence and opportunity.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Leadership</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li></ul></div>
+        <div class="footer-col"><h4>Intelligence</h4><ul><li><a href="#">Data Center</a></li><li><a href="#">Forecasts</a></li><li><a href="#">Reports</a></li><li><a href="#">API</a></li></ul></div>
+        <div class="footer-col"><h4>Ecosystem</h4><ul><li><a href="#">Exporters</a></li><li><a href="#">Youth</a></li><li><a href="#">Investors</a></li><li><a href="#">Affiliate</a></li></ul></div>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Intelligence Briefing</h4>
+        <p>Get weekly trade insights.</p>
+        <input type="email" placeholder="Your email">
+        <button>Subscribe</button>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="footer-bottom"><p>© 2026 WTINext — Global Commerce Civilization. All rights reserved.</p></div>
+    </div>
   </div>
 </footer>
 
@@ -274,21 +811,11 @@
   document.getElementById('menuToggle').addEventListener('click', function() {
     document.getElementById('navMenu').classList.toggle('active');
   });
-
-  document.querySelectorAll('.dropdown').forEach(d => {
-    d.addEventListener('click', (e) => {
-      if (window.innerWidth <= 1000) {
-        e.preventDefault();
-        d.classList.toggle('active');
-      }
-    });
-  });
-
   const scrollElements = document.querySelectorAll('.animate-on-scroll');
   function checkScroll() {
     scrollElements.forEach(el => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 120) el.classList.add('show');
+      if (rect.top < window.innerHeight - 100) el.classList.add('show');
     });
   }
   window.addEventListener('scroll', checkScroll);
