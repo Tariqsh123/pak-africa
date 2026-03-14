@@ -192,13 +192,13 @@
       display: flex;
       align-items: center;
       position: relative;
-      background: url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat fixed;
+      background: url('images/hero-image.png') center/cover no-repeat fixed;
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(105deg, #0a1a24 20%, rgba(10,26,36,0.5) 70%, rgba(0,0,0,0.2));
+      background: linear-gradient(105deg, #0a1a24 20%, transparent 70%, transparent);
       z-index: 1;
     }
     .hero-content {
@@ -326,7 +326,7 @@
       margin-bottom: 20px;
     }
 
-    /* feature list - minimal, no cards */
+    /* feature list - minimal, no cards (kept for core services) */
     .feature-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -484,6 +484,313 @@
     }
     .newsletter-input button:hover { background: #b38b3e; }
 
+    /* ========== EXPANDED PROFESSIONAL SECTIONS ========== */
+
+    /* Industry Verticals - 6 premium cards */
+    .verticals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin: 50px 0;
+    }
+    .vertical-card {
+      background: rgba(15, 44, 58, 0.4);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      padding: 35px 25px 30px;
+      transition: var(--transition);
+      text-align: left;
+      box-shadow: 0 15px 25px -10px rgba(0,0,0,0.5);
+    }
+    .vertical-card:hover {
+      border-color: var(--gold-luxury);
+      transform: translateY(-6px);
+      background: rgba(26, 75, 98, 0.3);
+    }
+    .vertical-card i {
+      font-size: 2.8rem;
+      color: var(--gold-luxury);
+      margin-bottom: 20px;
+    }
+    .vertical-card h4 {
+      font-family: 'Bruno Ace SC', cursive;
+      font-size: 1.5rem;
+      color: var(--gold-luxury);
+      margin-bottom: 15px;
+    }
+    .vertical-card p {
+      color: #c0d4e0;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Regional Spotlights */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin: 40px 0;
+    }
+    .region-item {
+      text-align: center;
+      padding: 10px;
+    }
+    .region-item .fi {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 8px rgba(201,161,75,0.3));
+    }
+    .region-item h4 { color: var(--gold-luxury); font-size: 1.3rem; margin-bottom: 8px; }
+    .region-item p { color: #aac3d4; font-size: 0.95rem; }
+
+    /* Platform Capabilities */
+    .platform-showcase {
+      display: flex;
+      gap: 30px;
+      margin: 60px 0 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .platform-panel {
+      flex: 1 1 280px;
+      background: rgba(10, 31, 42, 0.7);
+      border: 1px solid var(--border-light);
+      border-radius: 28px;
+      padding: 40px 30px;
+      transition: var(--transition);
+      text-align: left;
+    }
+    .platform-panel:hover {
+      border-color: var(--gold-luxury);
+      background: rgba(26, 75, 98, 0.4);
+    }
+    .platform-panel i {
+      font-size: 3rem;
+      color: var(--gold-luxury);
+      margin-bottom: 25px;
+    }
+    .platform-panel h4 {
+      font-family: 'Bruno Ace SC', cursive;
+      font-size: 1.6rem;
+      color: var(--gold-luxury);
+      margin-bottom: 15px;
+    }
+    .platform-panel p {
+      color: #c0d4e0;
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+    }
+    .feature-tag {
+      color: var(--gold-light);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    /* Executive Briefing */
+    .briefing-panel {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .briefing-text {
+      flex: 2;
+    }
+    .briefing-text h3 {
+      font-size: 2.2rem;
+      color: var(--gold-luxury);
+      margin-bottom: 20px;
+    }
+    .briefing-text p {
+      font-size: 1.2rem;
+      color: #c0d4e0;
+      max-width: 700px;
+      margin-bottom: 20px;
+    }
+    .briefing-meta {
+      flex: 1;
+      text-align: right;
+      color: var(--gold-light);
+      border-left: 2px solid var(--gold-luxury);
+      padding-left: 30px;
+    }
+    .briefing-meta div { margin-bottom: 10px; }
+
+    /* Research & Publications */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin: 40px 0;
+    }
+    .research-item {
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      padding: 30px 25px;
+      transition: var(--transition);
+      background: rgba(15,44,58,0.2);
+    }
+    .research-item:hover { border-color: var(--gold-luxury); }
+    .research-item i { color: var(--gold-luxury); font-size: 2.2rem; margin-bottom: 15px; }
+    .research-item h4 { font-size: 1.5rem; color: var(--gold-luxury); margin-bottom: 10px; }
+    .research-item p { color: #b6cdde; margin-bottom: 15px; }
+    .research-link { color: var(--gold-light); text-decoration: none; font-weight: 500; }
+
+    /* Insights & Analysis */
+    .insights-row {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+    .insights-col {
+      flex: 1 1 300px;
+    }
+    .insights-col h4 {
+      font-family: 'Bruno Ace SC', cursive;
+      color: var(--gold-luxury);
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      border-bottom: 1px dashed var(--border-light);
+      padding-bottom: 10px;
+    }
+    .insights-list {
+      list-style: none;
+    }
+    .insights-list li {
+      margin-bottom: 15px;
+      padding-left: 25px;
+      position: relative;
+      color: #c0d4e0;
+    }
+    .insights-list li::before {
+      content: '▹';
+      color: var(--gold-luxury);
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+    }
+    .insights-date {
+      color: var(--gold-light);
+      font-size: 0.85rem;
+      margin-left: 10px;
+    }
+
+    /* FAQ section */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px 50px;
+      margin: 50px 0 20px;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 25px;
+    }
+    .faq-question {
+      font-family: 'Bruno Ace SC', cursive;
+      font-size: 1.3rem;
+      color: var(--gold-luxury);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .faq-question i {
+      font-size: 1.5rem;
+      color: var(--gold-light);
+    }
+    .faq-answer {
+      color: #b6cdde;
+      font-size: 1.05rem;
+      padding-left: 35px;
+    }
+
+    /* NEW: Contact Form (after FAQ) */
+    .contact-form-section {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      padding: 50px 40px;
+      border: 1px solid var(--border-light);
+      border-radius: 40px;
+      background: rgba(10,31,42,0.5);
+      backdrop-filter: blur(4px);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .form-field {
+      margin-bottom: 10px;
+    }
+    .form-field.full-width {
+      grid-column: 1 / -1;
+    }
+    .form-field label {
+      display: block;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    .form-field input, .form-field textarea, .form-field select {
+      width: 100%;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-light);
+      border-radius: 50px;
+      color: white;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+      outline: none;
+      border-color: var(--gold-luxury);
+      background: rgba(255,255,255,0.1);
+    }
+    .form-field textarea {
+      border-radius: 30px;
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23c9a14b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 20px center;
+      background-size: 16px;
+    }
+    .form-submit {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .form-submit button {
+      padding: 18px 60px;
+      border-radius: 60px;
+      border: none;
+      background: var(--gradient-gold);
+      color: #0b1c2b;
+      font-weight: 600;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+    }
+    .form-submit button:hover {
+      background: #b38b3e;
+      transform: scale(1.02);
+    }
+
     /* quote */
     .quote-block {
       text-align: center;
@@ -495,32 +802,112 @@
       border-bottom: 1px solid var(--border-light);
     }
 
-    /* footer */
+    /* ADVANCED FOOTER */
     footer {
       background: #0a1a24;
-      padding: 60px 0 25px;
-      margin-top: 40px;
+      padding: 70px 0 30px;
+      margin-top: 50px;
+      border-top: 2px solid rgba(201,161,75,0.15);
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.2fr 2fr 1.2fr;
-      gap: 40px;
-      align-items: start;
+      grid-template-columns: 1.5fr 2fr 2fr 1.5fr;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .footer-col p, .footer-col a, .footer-bottom p { color: #a0bccf; font-size: 0.95rem; }
+    .footer-col h4, .footer-subhead {
+      color: var(--gold-luxury);
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      font-family: 'Bruno Ace SC', cursive;
+      letter-spacing: 1px;
     }
     .footer-logo img { height: 60px; margin-bottom: 15px; }
-    .footer-logo p { color: #8fa8b5; font-size: 0.95rem; max-width: 260px; }
-    .footer-links { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; }
-    .footer-col h4 { color: var(--gold-luxury); font-size: 1.1rem; margin-bottom: 20px; }
-    .footer-col ul li { margin-bottom: 12px; list-style: none; }
-    .footer-col ul li a { color: #a0b8c5; text-decoration: none; transition: var(--transition); }
-    .footer-col ul li a:hover { color: var(--gold-luxury); }
-    .footer-newsletter h4 { color: var(--gold-luxury); margin-bottom: 15px; }
-    .footer-newsletter input { width: 100%; padding: 12px; border-radius: 40px; border: 1px solid var(--border-light); background: rgba(255,255,255,0.05); color: white; margin-bottom: 12px; }
-    .footer-newsletter button { padding: 12px; border-radius: 40px; border: none; background: var(--gradient-gold); color: #0b1c2b; font-weight: 600; cursor: pointer; width: 100%; }
-    .footer-social { grid-column: 1 / -1; text-align: center; margin: 30px 0 20px; }
-    .footer-social a { display: inline-flex; width: 42px; height: 42px; border-radius: 50%; background: rgba(31,75,98,0.5); color: white; align-items: center; justify-content: center; margin: 0 8px; transition: var(--transition); border: 1px solid var(--border-light); }
-    .footer-social a:hover { background: var(--gold-luxury); color: #0b1c2b; }
-    .footer-bottom { grid-column: 1 / -1; text-align: center; color: #6d8b9c; border-top: 1px solid var(--border-light); padding-top: 25px; margin-top: 20px; }
+    .footer-about {
+      margin: 15px 0 20px;
+      line-height: 1.6;
+    }
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .footer-contact-item i { color: var(--gold-luxury); width: 24px; font-size: 1.2rem; }
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .footer-links-grid a {
+      text-decoration: none;
+      color: #a0bccf;
+      transition: var(--transition);
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .footer-links-grid a:hover { color: var(--gold-luxury); transform: translateX(4px); }
+    .footer-subscribe p { margin-bottom: 15px; }
+    .footer-subscribe input {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-light);
+      color: white;
+      margin-bottom: 12px;
+    }
+    .footer-subscribe button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 50px;
+      border: none;
+      background: var(--gradient-gold);
+      color: #0b1c2b;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .footer-subscribe button:hover { background: #b38b3e; }
+    .footer-social {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin: 40px 0 25px;
+    }
+    .footer-social a {
+      display: inline-flex;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(26,75,98,0.4);
+      color: white;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10px;
+      transition: var(--transition);
+      border: 1px solid var(--border-light);
+      font-size: 1.3rem;
+    }
+    .footer-social a:hover { background: var(--gold-luxury); color: #0b1c2b; transform: scale(1.1); }
+    .footer-bottom {
+      grid-column: 1 / -1;
+      text-align: center;
+      border-top: 1px solid var(--border-light);
+      padding-top: 25px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      color: #6f95aa;
+    }
+    .footer-bottom-links a {
+      color: #9ab3c5;
+      text-decoration: none;
+      margin-left: 25px;
+      transition: var(--transition);
+    }
+    .footer-bottom-links a:hover { color: var(--gold-luxury); }
 
     .animate-on-scroll {
       opacity: 0;
@@ -530,12 +917,24 @@
     .animate-on-scroll.show { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 900px) {
-      .footer-grid { grid-template-columns: 1fr; text-align: center; }
-      .footer-logo p { margin: 0 auto; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-social { grid-column: 1 / -1; }
+      .verticals-grid { grid-template-columns: repeat(2,1fr); }
+      .region-grid { grid-template-columns: repeat(2,1fr); }
+      .research-grid { grid-template-columns: repeat(2,1fr); }
+      .briefing-panel { flex-direction: column; text-align: center; }
+      .briefing-meta { border-left: none; border-top: 2px solid var(--gold-luxury); padding-left: 0; padding-top: 20px; text-align: center; }
+      .form-grid { grid-template-columns: 1fr; }
     }
-    .core-services-h2{
-      text-align: center;
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 10px; }
+      .verticals-grid { grid-template-columns: 1fr; }
+      .region-grid { grid-template-columns: 1fr; }
+      .research-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
     }
+    .core-services-h2 { text-align: center; }
     @media(max-width:600px){
       .hero-subtitle{
         font-size: 13px;
@@ -554,28 +953,13 @@
         align-items: center;
         text-align: center;
       }
-      .hero-text {
-    font-size: medium;}
-    .hero-buttons{
-      justify-content: center;
-      align-items: center;
-    }
-    .it-text h3 {
-    font-size: clamp(1.5rem, 4vw, 2.8rem);
-    text-align: center;
-  }.it-text p {
-    font-size: medium;
-    text-align: center;}
-    .feature-item h3 {
-    font-size: medium;}
-    .chairman-name {
-    font-size: clamp(1.6rem, 4vw, 3.2rem);
-    text-align: center;
-    }
-    .chairman-titles {
-    color: #b0c4d4;
-    text-align: center;
-    font-size: small;}
+      .hero-text { font-size: medium; }
+      .hero-buttons{ justify-content: center; align-items: center; }
+      .it-text h3 { font-size: clamp(1.5rem, 4vw, 2.8rem); text-align: center; }
+      .it-text p { font-size: medium; text-align: center; }
+      .feature-item h3 { font-size: medium; }
+      .chairman-name { font-size: clamp(1.6rem, 4vw, 3.2rem); text-align: center; }
+      .chairman-titles { color: #b0c4d4; text-align: center; font-size: small; }
     }
   </style>
 </head>
@@ -619,7 +1003,7 @@
   </div>
 </div>
 
-<!-- STATS - clean, no boxes -->
+<!-- STATS -->
 <section>
   <div class="container">
     <div class="stats-grid animate-on-scroll">
@@ -631,12 +1015,12 @@
   </div>
 </section>
 
-<!-- SECTION 1: Global Markets -->
+<!-- Global Markets -->
 <section>
   <div class="container">
     <div class="image-text-grid animate-on-scroll">
-      <div class="it-image"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" alt="Global Markets"></div>
-      <div class="it-text"><h3>Global Markets Intelligence</h3><p>Real‑time news, economic statistics, trade insights across Africa, Asia, Europe and Americas. Our data center delivers import/export analysis, commodity insights and industry forecasts.</p></div>
+      <div class="it-image"><img src="images/home-after-hero-image.png" alt="Global Markets"></div>
+      <div class="it-text"><h3>Global Markets Intelligence</h3><p>Real‑time news, economic statistics, trade insights across Africa, Asia, Europe and Americas. Our data center delivers import/export analysis, commodity insights and industry forecasts. More than 200 field analysts feed our proprietary algorithms to provide you with actionable intelligence before market shifts.</p></div>
     </div>
   </div>
 </section>
@@ -645,20 +1029,20 @@
 <section style="background:#0a1f2a;">
   <div class="container">
     <div class="image-text-grid reverse animate-on-scroll">
-      <div class="it-image"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Emerging Markets"></div>
-      <div class="it-text"><h3>Emerging Markets <span class="accent">Insights</span></h3><p>Deep-dive analysis into Africa-Asia trade corridors, Latin American growth, and Middle Eastern diversification. We identify opportunities before they become mainstream.</p></div>
+      <div class="it-image"><img src="images/home-emerging-image.png" alt="Emerging Markets"></div>
+      <div class="it-text"><h3>Emerging Markets <span class="accent">Insights</span></h3><p>Deep-dive analysis into Africa-Asia trade corridors, Latin American growth, and Middle Eastern diversification. We identify opportunities before they become mainstream. Currently tracking 42 high-growth corridors with quarterly outlooks on infrastructure, regulatory shifts, and hidden champions.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CORE SERVICES - as feature list, no boxes -->
+<!-- CORE SERVICES -->
 <section>
   <div class="container">
     <h2 class="animate-on-scroll core-services-h2">Core <span class="accent">Services</span></h2>
     <div class="feature-list">
-      <div class="feature-item"><i class="fas fa-newspaper"></i><h3>Daily News</h3><p>Trade, finance, policy updates</p></div>
-      <div class="feature-item"><i class="fas fa-chart-pie"></i><h3>Data Analytics</h3><p>Import/export trends & forecasts</p></div>
-      <div class="feature-item"><i class="fas fa-robot"></i><h3>AI Forecasts</h3><p>3-5 year commodity outlook</p></div>
+      <div class="feature-item"><i class="fas fa-newspaper"></i><h3>Daily News</h3><p>Trade, finance, policy updates with context from 600+ bureaus</p></div>
+      <div class="feature-item"><i class="fas fa-chart-pie"></i><h3>Data Analytics</h3><p>Import/export trends & forecasts with scenario simulation</p></div>
+      <div class="feature-item"><i class="fas fa-robot"></i><h3>AI Forecasts</h3><p>3-5 year commodity outlook & geopolitical risk index</p></div>
     </div>
   </div>
 </section>
@@ -667,36 +1051,119 @@
 <section style="background:#0b1c2b;">
   <div class="container">
     <div class="image-text-grid animate-on-scroll">
-      <div class="it-image"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Data Insights"></div>
-      <div class="it-text"><h3>Real-time <span class="accent">Data Insights</span></h3><p>Dashboards displaying live trade flows, economic indicators, and predictive analytics. Empower your decisions with our intelligence engine.</p></div>
+      <div class="it-image"><img src="images/home-real-time-data.png" alt="Data Insights"></div>
+      <div class="it-text"><h3>Real-time <span class="accent">Data Insights</span></h3><p>Dashboards displaying live trade flows, economic indicators, and predictive analytics. Empower your decisions with our intelligence engine. From shipping congestion indexes to real-time currency volatility, WTINext delivers clarity in complex global markets.</p></div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS - as feature list -->
-<!-- <section>
+<!-- ========== EXPANDED PROFESSIONAL SECTIONS ========== -->
+
+<!-- Industry Verticals - 6 premium cards -->
+<section>
   <div class="container">
-    <h2 class="animate-on-scroll">What <span class="accent">Leaders Say</span></h2>
-    <div class="feature-list">
-      <div class="feature-item"><i class="fas fa-quote-right"></i><p>"WTINext transformed our market entry strategy."</p><h4>— CEO, Global Exports</h4></div>
-      <div class="feature-item"><i class="fas fa-quote-right"></i><p>"Future buying system is revolutionary."</p><h4>— Director, Manufacturing</h4></div>
-      <div class="feature-item"><i class="fas fa-quote-right"></i><p>"Youth e-store program opened new revenue streams."</p><h4>— Founder, Youth Chamber</h4></div>
+    <h2 class="animate-on-scroll">Industry <span class="accent">Verticals</span></h2>
+    <div class="verticals-grid">
+      <div class="vertical-card"><i class="fas fa-oil-can"></i><h4>Energy & Commodities</h4><p>Oil, gas, metals, and agricultural markets – supply, pricing, and trade flow analytics with geopolitical risk overlay.</p></div>
+      <div class="vertical-card"><i class="fas fa-microchip"></i><h4>Tech & Semiconductors</h4><p>Global value chain intelligence, from raw materials to finished electronics, including export controls and subsidies.</p></div>
+      <div class="vertical-card"><i class="fas fa-tractor"></i><h4>Agri-Food</h4><p>Crop forecasts, food security indexes, and cross-border agri-logistics with weather and policy modelling.</p></div>
+      <div class="vertical-card"><i class="fas fa-ship"></i><h4>Maritime & Logistics</h4><p>Port efficiency, freight rates, shipping congestion trackers, and infrastructure project intelligence.</p></div>
+      <div class="vertical-card"><i class="fas fa-capsules"></i><h4>Pharma & Healthcare</h4><p>Cross-border drug trade, medical device supply chains, regulatory intelligence and API dependencies.</p></div>
+      <div class="vertical-card"><i class="fas fa-car"></i><h4>Automotive & E-Mobility</h4><p>EV battery supply chains, trade flows in finished vehicles, and emerging manufacturing hub analysis.</p></div>
     </div>
   </div>
-</section> -->
+</section>
 
-<!-- NEWS TICKER -->
+<!-- Regional Spotlights -->
+<section style="background:#0a1f2a;">
+  <div class="container">
+    <h2 class="animate-on-scroll">Regional <span class="accent">Spotlights</span></h2>
+    <div class="region-grid">
+      <div class="region-item"><span class="fi fi-sg"></span><h4>Southeast Asia</h4><p>Digital economy, semiconductor shift, and infrastructure</p></div>
+      <div class="region-item"><span class="fi fi-ae"></span><h4>Gulf States</h4><p>Sovereign funds, economic diversification, and trade corridors</p></div>
+      <div class="region-item"><span class="fi fi-br"></span><h4>Latin America</h4><p>Agri-exports, nearshoring, and critical minerals</p></div>
+      <div class="region-item"><span class="fi fi-ng"></span><h4>West Africa</h4><p>Resource corridors, fintech growth, and regional integration</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Platform Capabilities -->
+<section>
+  <div class="container">
+    <h2 class="animate-on-scroll">Platform <span class="accent">Capabilities</span></h2>
+    <div class="platform-showcase">
+      <div class="platform-panel">
+        <i class="fas fa-chart-line"></i>
+        <h4>Live Trade Monitor</h4>
+        <p>Real‑time visualization of import/export flows, tariff impacts, and shipping patterns across 200+ economies. Custom alerts on key trade corridors.</p>
+        <span class="feature-tag">dynamic dashboards</span>
+      </div>
+      <div class="platform-panel">
+        <i class="fas fa-brain"></i>
+        <h4>AI Forecasting Engine</h4>
+        <p>Proprietary machine learning models predict commodity price movements, supply chain disruptions, and currency volatility with 87% accuracy.</p>
+        <span class="feature-tag">predictive analytics</span>
+      </div>
+      <div class="platform-panel">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <h4>Enterprise API & Data Feeds</h4>
+        <p>Seamless integration with your internal systems. Access raw data, economic indicators, and risk scores via REST API or dedicated data feeds.</p>
+        <span class="feature-tag">scalable & secure</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Youth E-Stores -->
 <section>
   <div class="container">
     <div class="image-text-grid reverse animate-on-scroll">
-      <div class="it-image"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" alt="Youth E-Stores"></div>
-      <div class="it-text"><h3>Youth E‑Store Revolution</h3><p>Launch verified global e‑stores with AI marketing tools, commission network, and Shopify + LinkedIn integration. Zero‑barrier for young entrepreneurs.</p></div>
+      <div class="it-image"><img src="images/home-Youth-E‑Store-Revolution.png" alt="Youth E-Stores"></div>
+      <div class="it-text"><h3>Youth E‑Store Revolution</h3><p>Launch verified global e‑stores with AI marketing tools, commission network, and Shopify + LinkedIn integration. Zero‑barrier for young entrepreneurs. Over 3,200 youth-led stores activated in 24 months, with collective cross-border revenue exceeding $47M.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CHAIRMAN SECTION - elegant flow -->
+<!-- Research & Publications -->
+<section style="background:#0a1f2a;">
+  <div class="container">
+    <h2 class="animate-on-scroll">Research <span class="accent">& Publications</span></h2>
+    <div class="research-grid">
+      <div class="research-item"><i class="fas fa-file-alt"></i><h4>Global Trade Outlook 2026</h4><p>Comprehensive analysis of trade patterns, tariff scenarios, and growth corridors. 200+ pages with data appendices.</p><a href="#" class="research-link">Download sample →</a></div>
+      <div class="research-item"><i class="fas fa-chart-bar"></i><h4>Commodity Price Index</h4><p>Monthly report on energy, metals, and agriculture with AI-driven price band forecasts and hedging strategies.</p><a href="#" class="research-link">Access report →</a></div>
+      <div class="research-item"><i class="fas fa-flag"></i><h4>Country Risk Navigator</h4><p>Quarterly risk scores for 150+ nations, covering political stability, currency volatility, and regulatory shifts.</p><a href="#" class="research-link">Explore data →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Insights & Analysis -->
+<section>
+  <div class="container">
+    <h2 class="animate-on-scroll">Insights & <span class="accent">Analysis</span></h2>
+    <div class="insights-row">
+      <div class="insights-col">
+        <h4>Must-read intelligence</h4>
+        <ul class="insights-list">
+          <li>How the Panama Canal drought reshapes global shipping routes <span class="insights-date">· Mar 15</span></li>
+          <li>EV battery metals: lithium and cobalt supply outlook to 2030 <span class="insights-date">· Mar 12</span></li>
+          <li>Africa’s free trade area: first-year impact and non-tariff barriers <span class="insights-date">· Mar 10</span></li>
+          <li>GCC sovereign wealth funds shift toward Asian infrastructure <span class="insights-date">· Mar 08</span></li>
+        </ul>
+      </div>
+      <div class="insights-col">
+        <h4>Expert commentaries</h4>
+        <ul class="insights-list">
+          <li>Interview: former WTO chief on the future of dispute settlement <span class="insights-date">· Mar 14</span></li>
+          <li>Why nearshoring to Mexico is accelerating (and what it means for Asia) <span class="insights-date">· Mar 11</span></li>
+          <li>Food security in the Middle East: import dependencies and local agritech <span class="insights-date">· Mar 09</span></li>
+          <li>Carbon border adjustments: early adopters and trade friction points <span class="insights-date">· Mar 06</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAIRMAN SECTION -->
 <section style="background:#0b1c2b;">
   <div class="container">
     <div class="chairman-section animate-on-scroll">
@@ -704,13 +1171,13 @@
       <div class="chairman-content">
         <div class="chairman-name">Prof Nadeem Ahmed Faraz</div>
         <div class="chairman-titles">Chairman – PERTC · PYEC · Happy Pakistan Welfare Trust · Convener Research & Youth Policy · PAEC · Head of Research YCCP</div>
-        <div class="chairman-bio">“Renowned economist, researcher and business strategist leading the editorial vision of Global Business Intelligence.”</div>
+        <div class="chairman-bio">“Renowned economist, researcher and business strategist leading the editorial vision of Global Business Intelligence. Under his guidance, WTINext has become the definitive source for cross‑continental trade intelligence and youth entrepreneurship data.”</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MAP SECTION - clean -->
+<!-- MAP SECTION -->
 <section>
   <div class="container">
     <div class="map-section animate-on-scroll">
@@ -721,6 +1188,7 @@
         <div class="map-stat"><span>450+</span> Trade Hubs</div>
         <div class="map-stat"><span>24/7</span> Intelligence</div>
       </div>
+      <p style="max-width: 800px; margin: 30px auto 0; color: #aac3d4;">Operational coverage spanning every continent, with physical liaison offices in 34 strategic cities — from Singapore to Lagos, London to São Paulo. Our correspondents are embedded in local business ecosystems.</p>
     </div>
   </div>
 </section>
@@ -729,13 +1197,13 @@
 <section style="background:#0a1f2a;">
   <div class="container">
     <div class="image-text-grid animate-on-scroll">
-      <div class="it-image"><img src="https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?q=80&w=2036&auto=format&fit=crop" alt="Trade Hubs"></div>
-      <div class="it-text"><h3>Strategic <span class="accent">Trade Hubs</span></h3><p>Analysis of key ports, free trade zones, and logistics corridors. We map the infrastructure powering global commerce.</p></div>
+      <div class="it-image"><img src="images/home-Strategic-Trade-Hubs.png" alt="Trade Hubs"></div>
+      <div class="it-text"><h3>Strategic <span class="accent">Trade Hubs</span></h3><p>Analysis of key ports, free trade zones, and logistics corridors. We map the infrastructure powering global commerce. Our hub efficiency index ranks 220+ zones by customs speed, digital readiness, and connectivity.</p></div>
     </div>
   </div>
 </section>
 
-<!-- TRUSTED PARTNERS - just images, no boxes -->
+<!-- TRUSTED PARTNERS -->
 <section>
   <div class="container">
     <h2 class="animate-on-scroll core-services-h2">Trusted <span class="accent">Partners</span></h2>
@@ -766,43 +1234,153 @@
   </div>
 </section>
 
+<!-- EXECUTIVE BRIEFING -->
+<section>
+  <div class="container">
+    <div class="briefing-panel animate-on-scroll">
+      <div class="briefing-text">
+        <h3>Executive Briefing</h3>
+        <p>Exclusive monthly analysis for C‑suite leaders: macroeconomic trends, geopolitical risk heatmaps, and early‑warning signals. Delivered in partnership with former central bank chiefs and trade ministers.</p>
+        <p>Each briefing includes a 30‑page PDF, a recorded strategy call, and access to the underlying data. Previous topics: "The new non-aligned trade bloc", "Critical minerals race", "Food inflation and social stability".</p>
+      </div>
+      <div class="briefing-meta">
+        <div><i class="fas fa-calendar-alt" style="color:var(--gold-luxury);"></i> Next briefing: Apr 10, 2026</div>
+        <div><i class="fas fa-users" style="color:var(--gold-luxury);"></i> By invitation only</div>
+        <div><i class="fas fa-file-pdf" style="color:var(--gold-luxury);"></i> Sample report available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- QUOTE -->
-<!-- <section>
+<section>
   <div class="container">
     <div class="quote-block animate-on-scroll">
       <i class="fas fa-quote-left" style="color:var(--gold-luxury); font-size:3.5rem;"></i>
       <p style="font-size:2rem; font-family:'Bruno Ace SC';">Knowledge Drives Markets. Intelligence Creates Opportunity.</p>
-      <div style="margin-top:30px;"> <span class="fi fi-us"></span> <span class="fi fi-gb"></span> <span class="fi fi-de"></span> </div>
+      <div style="margin-top:30px;"> <span class="fi fi-us"></span> <span class="fi fi-gb"></span> <span class="fi fi-de"></span> <span class="fi fi-sg"></span> <span class="fi fi-br"></span> </div>
     </div>
   </div>
-</section> -->
+</section>
+
+<!-- FAQ SECTION -->
+<section>
+  <div class="container">
+    <h2 class="animate-on-scroll">Frequently <span class="accent">Asked Questions</span></h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-question"><i class="fas fa-circle-question"></i> What makes WTINext different?</div>
+        <div class="faq-answer">WTINext combines real-time trade data, AI-driven forecasts, and on-ground reporting from 150+ countries. We focus on actionable intelligence for cross-border business, not just news.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><i class="fas fa-circle-question"></i> Who can access the data platform?</div>
+        <div class="faq-answer">Our intelligence is available for corporate members, research institutions, and vetted entrepreneurs. Tiered access ranges from daily briefings to full API integration.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><i class="fas fa-circle-question"></i> How often is the data updated?</div>
+        <div class="faq-answer">Trade flows and economic indicators are refreshed daily; commodity forecasts are updated weekly. Our AI models retrain monthly with new customs and shipping data.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><i class="fas fa-circle-question"></i> Do you provide custom research?</div>
+        <div class="faq-answer">Yes. Our strategic intelligence unit delivers bespoke reports, competitor analysis, and market entry playbooks for corporations and investment funds.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><i class="fas fa-circle-question"></i> What is the Youth E‑Store initiative?</div>
+        <div class="faq-answer">A zero-barrier program enabling young entrepreneurs to launch global e‑stores with integrated AI marketing, logistics support, and access to WTINext’s buyer network.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><i class="fas fa-circle-question"></i> How to become an affiliate?</div>
+        <div class="faq-answer">We welcome consultancies, trade bodies, and media partners. Affiliates gain revenue share and co-branded intelligence tools. Click “Join Movement” to apply.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NEW CONTACT FORM (after FAQ) ========== -->
+<section>
+  <div class="container">
+    <div class="contact-form-section animate-on-scroll">
+      <h2 class="core-services-h2" style="margin-bottom: 1rem;">Get in <span class="accent">Touch</span></h2>
+      <p style="text-align: center; color: #aac3d4; max-width: 600px; margin: 0 auto 30px;">Our team of intelligence analysts will respond within 24 hours.</p>
+      <form action="#" method="post">
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Full name</label>
+            <input type="text" placeholder="John Smith" required>
+          </div>
+          <div class="form-field">
+            <label>Email address</label>
+            <input type="email" placeholder="john@company.com" required>
+          </div>
+          <div class="form-field">
+            <label>Organization</label>
+            <input type="text" placeholder="Company / Institution">
+          </div>
+          <div class="form-field">
+            <label>Country</label>
+            <select>
+              <option value="" disabled selected>— Select —</option>
+              <option>United States</option>
+              <option>United Kingdom</option>
+              <option>UAE</option>
+              <option>Singapore</option>
+              <option>India</option>
+              <option>Germany</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field full-width">
+            <label>Message / inquiry</label>
+            <textarea placeholder="Tell us how we can assist you..."></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit">Send message</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-logo">
-        <img src="images/logo.png" alt="WTINext" onerror="this.src='https://placehold.co/200x70/0f2c3a/gold?text=WTINext'">
-        <p>Global Business Intelligence · The next generation e-business newspaper connecting markets, intelligence and opportunity.</p>
+      <div class="footer-col">
+        <div class="footer-logo"><img src="images/logo.png" alt="WTINext" onerror="this.src='https://placehold.co/200x70/0f2c3a/gold?text=WTINext'"></div>
+        <p class="footer-about">Global Business Intelligence · The next generation e-business newspaper connecting markets, intelligence and opportunity.</p>
+        <div class="footer-contact-item"><i class="fas fa-map-pin"></i> <span>300 AI Tawun St, Business Bay, Dubai, UAE</span></div>
+        <div class="footer-contact-item"><i class="fas fa-phone-alt"></i> <span>+971 4 562 1900</span></div>
+        <div class="footer-contact-item"><i class="fas fa-envelope"></i> <span>intel@wtinext.global</span></div>
       </div>
-      <div class="footer-links">
-        <div class="footer-col"><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Leadership</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li></ul></div>
-        <div class="footer-col"><h4>Intelligence</h4><ul><li><a href="#">Data Center</a></li><li><a href="#">Forecasts</a></li><li><a href="#">Reports</a></li><li><a href="#">API</a></li></ul></div>
-        <div class="footer-col"><h4>Ecosystem</h4><ul><li><a href="#">Exporters</a></li><li><a href="#">Youth</a></li><li><a href="#">Investors</a></li><li><a href="#">Affiliate</a></li></ul></div>
+      <div class="footer-col">
+        <h4>Intelligence</h4>
+        <div class="footer-links-grid">
+          <a href="#">Data Center</a><a href="#">Commodities</a><a href="#">Country Risk</a><a href="#">Forecasts 2027</a>
+          <a href="#">Trade Flows</a><a href="#">API Access</a><a href="#">Custom Reports</a><a href="#">Webinars</a>
+        </div>
       </div>
-      <div class="footer-newsletter">
+      <div class="footer-col">
+        <h4>Ecosystem</h4>
+        <div class="footer-links-grid">
+          <a href="#">Exporters Club</a><a href="#">Youth E‑Store</a><a href="#">Investor Network</a><a href="#">Affiliate Program</a>
+          <a href="#">Research Corps</a><a href="#">Partnerships</a><a href="#">Sustainability</a><a href="#">Careers</a>
+        </div>
+      </div>
+      <div class="footer-col footer-subscribe">
         <h4>Intelligence Briefing</h4>
-        <p>Get weekly trade insights.</p>
-        <input type="email" placeholder="Your email">
-        <button>Subscribe</button>
+        <p>Weekly newsletter with exclusive data, early access to reports, and live Q&A with analysts.</p>
+        <input type="email" placeholder="work@email.com"><button>Subscribe</button>
+        <p style="margin-top:15px; font-size:0.85rem;">No spam, only intelligence.</p>
       </div>
-      <div class="footer-social">
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-x-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-      </div>
-      <div class="footer-bottom"><p>© 2026 WTINext — Global Commerce Civilization. All rights reserved.</p></div>
+    </div>
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-threads"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 WTINext — Global Commerce Civilization. All rights reserved.</p>
+      <div class="footer-bottom-links"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Cookies</a><a href="#">Accessibility</a><a href="#">Sitemap</a></div>
     </div>
   </div>
 </footer>
